@@ -10,7 +10,18 @@ RUN apt-get update && \
         build-essential \
         ruby-dev \
         vim-nox \
+        tmux \
         git
+
+ENV NAME memowe
+ENV HOME /home/$NAME
+
+# Go to userland
+RUN useradd -m -d $HOME $NAME && \
+    mkdir -p $HOME && \
+    chown -R $NAME:$NAME $HOME
+WORKDIR $HOME
+USER $NAME
 
 # Install vim configuration environment
 RUN git clone --recurse-submodules https://github.com/memowe/vim-conf.git .vim
@@ -20,4 +31,5 @@ RUN cd .vim/bundle/command-t/ruby/command-t/ext/command-t && \
     make clean
 
 # START
-CMD ["/bin/bash"]
+COPY tmux.conf .tmux.conf
+CMD ["tmux"]
