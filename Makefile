@@ -1,4 +1,4 @@
-.PHONY: build-base build-perl build-user build test-perl test all
+.PHONY: build-base build-perl build-user build test-perl test all run
 
 build-base:
 	docker build -t memowe-base base
@@ -33,3 +33,6 @@ test-perl: build-perl
 test: test-perl
 
 all: test
+
+run: build
+	docker run -ti memowe /bin/bash
