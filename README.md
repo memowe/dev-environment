@@ -7,6 +7,12 @@ Docker configurations for my development environment
 - **[perl](perl/Dockerfile)**
     - Perl environment with modules important for me
 
+## Author and license
+
+(c) 2018 [Mirko Westermeier](http://mirko.westermeier.de/)
+
+Released under the MIT License.
+
 ## Resources
 
 - [Docker Docs: **Dockerfile reference**][df-reference]

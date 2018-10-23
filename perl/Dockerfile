@@ -1,7 +1,5 @@
 FROM perl:5.28.0
 
-# https://github.com/memowe/dev-environment
-LABEL maintainer="Mirko Westermeier <mirko@westermeier.de>"
 
 # Install data management perl modules
 RUN cpanm -qn \
