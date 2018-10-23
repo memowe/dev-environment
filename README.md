@@ -36,7 +36,7 @@ All this is orchestrated with a funky [Makefile](Makefile).
 
 (c) 2018 [Mirko Westermeier](http://mirko.westermeier.de/)
 
-Released under the MIT License.
+Released under the [MIT License](LICENSE).
 
 ## Resources
 
