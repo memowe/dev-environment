@@ -29,6 +29,8 @@ RUN cd .vim/bundle/command-t/ruby/command-t/ext/command-t && \
     ruby extconf.rb && \
     make
 
-# START
+# Install tmux configuration
 COPY tmux.conf .tmux.conf
-CMD ["tmux"]
+
+# Done
+CMD ["/bin/bash"]
