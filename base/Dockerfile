@@ -27,8 +27,7 @@ USER $NAME
 RUN git clone --recurse-submodules https://github.com/memowe/vim-conf.git .vim
 RUN cd .vim/bundle/command-t/ruby/command-t/ext/command-t && \
     ruby extconf.rb && \
-    make && \
-    make clean
+    make
 
 # START
 COPY tmux.conf .tmux.conf
