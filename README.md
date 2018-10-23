@@ -2,10 +2,15 @@ Docker configurations for my development environment
 ====================================================
 
 - **[base](base/Dockerfile)**
-    - `vim` configuration
+    - Installation of important stuff like git/vim etc.
 
 - **[perl](perl/Dockerfile)**
     - Perl environment with modules important for me
+
+- **[user](user/Dockerfile)**
+    - `vim` etc. configuration
+
+All this is orchestrated with a funky [Makefile](Makefile).
 
 ## Author and license
 

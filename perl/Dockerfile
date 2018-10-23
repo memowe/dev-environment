@@ -5,7 +5,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install -y \
         perl \
-        cpanminus
+        cpanminus \
+        zlib1g-dev # for Gzip::Faster
 
 # Install data management perl modules
 RUN cpanm -qn \
