@@ -1,5 +1,11 @@
-FROM perl:5.28.0
+FROM ubuntu:18.04
 
+# Install perl basics
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update && \
+    apt-get install -y \
+        perl \
+        cpanminus
 
 # Install data management perl modules
 RUN cpanm -qn \
