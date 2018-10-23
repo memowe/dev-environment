@@ -35,4 +35,8 @@ test: test-perl
 all: test
 
 run: build
+ifdef MOUNT
+	docker run -v "$$MOUNT:/home/memowe/outside" -ti memowe /bin/bash
+else
 	docker run -ti memowe /bin/bash
+endif

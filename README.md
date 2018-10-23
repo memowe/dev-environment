@@ -1,6 +1,26 @@
 Docker configurations for my development environment
 ====================================================
 
+Run it:
+
+```bash
+$ make run
+```
+
+Run it with data:
+
+```bash
+$ MOUNT=$HOME make run
+```
+
+Test it:
+
+```bash
+$ make test
+```
+
+## Contents
+
 - **[base](base/Dockerfile)**
     - Installation of important stuff like git/vim etc.
 
