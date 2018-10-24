@@ -1,5 +1,11 @@
 .PHONY: build-base build-perl build-user build test-perl test all run
 
+# Determine what to mount as the ~/outside volume
+run_command = "docker run -ti"
+ifdef MOUNT
+	run_command += " -v $$MOUNT:$$HOME/outside"
+endif
+
 build-base:
 	docker build -t memowe-base base
 
@@ -35,8 +41,4 @@ test: test-perl
 all: test
 
 run: build
-ifdef MOUNT
-	docker run -v "$$MOUNT:/home/memowe/outside" -ti memowe /bin/bash
-else
-	docker run -ti memowe /bin/bash
-endif
+	eval "$(run_command) memowe"
