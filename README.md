@@ -1,6 +1,8 @@
 Docker configurations for my development environment
 ====================================================
 
+[![Travis CI tests](https://travis-ci.org/memowe/dev-environment.svg?branch=master)](https://travis-ci.org/memowe/dev-environment)
+
 Run it:
 
 ```bash
