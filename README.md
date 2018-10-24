@@ -4,13 +4,13 @@ Docker configurations for my development environment
 Run it:
 
 ```bash
-$ make run
+$ make
 ```
 
 Run it with data:
 
 ```bash
-$ MOUNT=$HOME make run
+$ MOUNT=$HOME make
 ```
 
 Test it:
@@ -18,6 +18,8 @@ Test it:
 ```bash
 $ make test
 ```
+
+Have a look at the [build targets](Makefile) for more information.
 
 ## Contents
 
