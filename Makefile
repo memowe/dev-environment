@@ -1,7 +1,8 @@
 .PHONY: build-base build-perl build-user build
 .PHONY: test-perl test
-.PHONY: all
 .PHONY: run-base run-perl run-user run
+.PHONY: all
+.DEFAULT_GOAL := all
 
 # Determine what to mount as the ~/outside volume
 run_command = "docker run -ti"
@@ -42,8 +43,6 @@ test-perl: build-perl
 
 test: test-perl
 
-all: test
-
 run-base: build-base
 	eval "$(run_command) memowe-base"
 
@@ -55,3 +54,6 @@ run-user: build-user
 
 run: build
 	eval "$(run_command) memowe"
+
+all: MOUNT = $(HOME)
+all: run
