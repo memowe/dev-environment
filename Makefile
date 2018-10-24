@@ -55,5 +55,4 @@ run-user: build-user
 run: build
 	eval "$(run_command) memowe"
 
-all: MOUNT = $(HOME)
 all: run
