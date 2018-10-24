@@ -27,11 +27,12 @@ build-user: build-perl
 			"FROM memowe-perl:latest" \
 			"$$(tail --lines=+2 user/Dockerfile)" \
 		> user/Dockerfile
-	docker build -t memowe user
+	docker build -t memowe-user user
 	rm user/Dockerfile
 	mv user/Dockerfile.bak user/Dockerfile
 
 build: build-user
+	docker tag memowe-user memowe
 
 test-perl: build-perl
 	docker run -v "$$(pwd)/perl/test.sh:/perl-test.sh" memowe-perl /bin/bash /perl-test.sh
