@@ -7,7 +7,7 @@
 # Determine what to mount as the ~/outside volume
 run_command = "docker run -ti"
 ifdef MOUNT
-	run_command += " -v $$MOUNT:$$HOME/outside"
+	run_command += " -v $$MOUNT:/home/memowe/outside"
 endif
 
 # Use dockerfiles with their FROM line replaced by the previous image
