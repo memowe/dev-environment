@@ -1,4 +1,7 @@
-.PHONY: build-base build-perl build-user build test-perl test all run
+.PHONY: build-base build-perl build-user build
+.PHONY: test-perl test
+.PHONY: all
+.PHONY: run-base run-perl run-user run
 
 # Determine what to mount as the ~/outside volume
 run_command = "docker run -ti"
@@ -40,6 +43,15 @@ test-perl: build-perl
 test: test-perl
 
 all: test
+
+run-base: build-base
+	eval "$(run_command) memowe-base"
+
+run-perl: build-perl
+	eval "$(run_command) memowe-perl"
+
+run-user: build-user
+	eval "$(run_command) memowe-user"
 
 run: build
 	eval "$(run_command) memowe"
