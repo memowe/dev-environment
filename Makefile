@@ -10,30 +10,30 @@ ifdef MOUNT
 	run_command += " -v $$MOUNT:$$HOME/outside"
 endif
 
+# Use dockerfiles with their FROM line replaced by the previous image
+define docker_build_with_from_being_previous
+	cp $(part)/Dockerfile $(part)/Dockerfile.bak
+	printf '%s\n%s\n' \
+			"FROM memowe-$(previous_part):latest" \
+			"$$(tail --lines=+2 $(part)/Dockerfile.bak)" \
+		> $(part)/Dockerfile
+	docker build -t memowe-$(part) $(part)
+	rm $(part)/Dockerfile
+	mv $(part)/Dockerfile.bak $(part)/Dockerfile
+endef
+
 build-base:
 	docker build -t memowe-base base
 
-# Use dockerfiles with their FROM line replaced by the previous image
-
+build-perl: previous_part = "base"
+build-perl: part = "perl"
 build-perl: build-base
-	cp perl/Dockerfile perl/Dockerfile.bak
-	printf '%s\n%s\n' \
-			"FROM memowe-base:latest" \
-			"$$(tail --lines=+2 perl/Dockerfile.bak)" \
-		> perl/Dockerfile
-	docker build -t memowe-perl perl
-	rm perl/Dockerfile
-	mv perl/Dockerfile.bak perl/Dockerfile
+	$(docker_build_with_from_being_previous)
 
+build-user: previous_part = "perl"
+build-user: part = "user"
 build-user: build-perl
-	cp user/Dockerfile user/Dockerfile.bak
-	printf '%s\n%s\n' \
-			"FROM memowe-perl:latest" \
-			"$$(tail --lines=+2 user/Dockerfile)" \
-		> user/Dockerfile
-	docker build -t memowe-user user
-	rm user/Dockerfile
-	mv user/Dockerfile.bak user/Dockerfile
+	$(docker_build_with_from_being_previous)
 
 build: build-user
 	docker tag memowe-user memowe
