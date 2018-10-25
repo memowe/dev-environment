@@ -43,7 +43,7 @@ build: build-user
 all: build
 
 test-perl: build-perl
-	docker run -v "$$(pwd)/perl/test.sh:/perl-test.sh" memowe-perl /bin/bash /perl-test.sh
+	docker run -v "$$(pwd)/perl/test.sh:/home/memowe/perl-test.sh" memowe-perl /bin/bash /home/memowe/perl-test.sh
 
 test: test-perl
 
