@@ -12,5 +12,8 @@ RUN apt-get update && \
         tmux \
         git
 
+# Expose web development port
+EXPOSE 3000
+
 # Done
 CMD ["/bin/bash"]

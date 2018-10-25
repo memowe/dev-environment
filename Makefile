@@ -2,8 +2,12 @@
 .PHONY: all test-perl test run
 .DEFAULT_GOAL := all
 
+# Default run command including
+# - web development port forwarding
+# - SSH keys
+run_command = "docker run -ti -p 3000:3000 -v $$HOME/.ssh:/home/memowe/.ssh"
+
 # Determine what to mount as the ~/outside volume
-run_command = "docker run -ti"
 ifdef MOUNT
 	run_command += " -v $$MOUNT:/home/memowe/outside"
 endif
