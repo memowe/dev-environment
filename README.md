@@ -16,6 +16,12 @@ $ make run
 $ MOUNT=$HOME make run
 ```
 
+Run it, but don't attach:
+
+```bash
+$ MOUNT=$HOME make detached
+```
+
 Test it:
 
 ```bash

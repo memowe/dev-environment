@@ -49,3 +49,6 @@ test: test-perl
 
 run: build
 	eval "$(run_command) memowe"
+
+detached: build
+	eval "$(run_command) -d memowe"
