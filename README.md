@@ -3,16 +3,17 @@ Docker configurations for my development environment
 
 [![Travis CI tests](https://travis-ci.org/memowe/dev-environment.svg?branch=master)](https://travis-ci.org/memowe/dev-environment)
 
-Run it:
+Cache/build docker images:
 
 ```bash
 $ make
 ```
 
-Run it with data:
+Run it (with data):
 
 ```bash
-$ MOUNT=$HOME make
+$ make run
+$ MOUNT=$HOME make run
 ```
 
 Test it:

@@ -1,7 +1,5 @@
 .PHONY: build-base build-perl build-user build
-.PHONY: test-perl test
-.PHONY: run-base run-perl run-user run
-.PHONY: all
+.PHONY: all test-perl test run
 .DEFAULT_GOAL := all
 
 # Determine what to mount as the ~/outside volume
@@ -38,21 +36,12 @@ build-user: build-perl
 build: build-user
 	docker tag memowe-user memowe
 
+all: build
+
 test-perl: build-perl
 	docker run -v "$$(pwd)/perl/test.sh:/perl-test.sh" memowe-perl /bin/bash /perl-test.sh
 
 test: test-perl
 
-run-base: build-base
-	eval "$(run_command) memowe-base"
-
-run-perl: build-perl
-	eval "$(run_command) memowe-perl"
-
-run-user: build-user
-	eval "$(run_command) memowe-user"
-
 run: build
 	eval "$(run_command) memowe"
-
-all: run
