@@ -1,4 +1,4 @@
-.PHONY: build-base build-perl build-user build
+.PHONY: build-base build-perl build-docs build-user build
 .PHONY: all test-perl test run
 .DEFAULT_GOAL := all
 
@@ -32,9 +32,14 @@ build-perl: part = "perl"
 build-perl: build-base
 	$(docker_build_with_from_being_previous)
 
-build-user: previous_part = "perl"
+build-docs: previous_part = "perl"
+build-docs: part = "docs"
+build-docs: build-perl
+	$(docker_build_with_from_being_previous)
+
+build-user: previous_part = "docs"
 build-user: part = "user"
-build-user: build-perl
+build-user: build-docs
 	$(docker_build_with_from_being_previous)
 
 build: build-user

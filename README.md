@@ -38,6 +38,9 @@ Have a look at the [build targets](Makefile) for more information.
 - **[perl](perl/Dockerfile)**
     - Perl environment with modules important for me
 
+- **[docs](docs/Dockerfile)**
+    - LaTeX/Pandoc for documents
+
 - **[user](user/Dockerfile)**
     - `vim` etc. configuration
 
