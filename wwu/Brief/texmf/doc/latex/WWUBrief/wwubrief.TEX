@@ -1,0 +1,905 @@
+% Dies ist WWUBRIEF.TEX
+\def\Datum{7. Mai 2008}
+% Änderungen:
+% 07.05.2008 Kr     Angepasst an WWU-CD und umbenannt in wwubrief
+% 25.02.2002 Kr     inputenc latin1
+% 15.12.1995 Kr     Umstellung auf LaTeX2e
+% 03.09.1992 Ar/FP  Ausgangsversion
+% --------------------------------------------------------------------------
+\documentclass{wwubrief}
+\usepackage{ngerman}
+\usepackage[latin1]{inputenc}
+\usepackage{alltt,expdlist}
+\renewcommand{\rmdefault}{cmr}
+
+\def\ttbackslash{{\tt\symbol{92}}}        % typewriter \
+\def\ttlbrace{{\tt\symbol{123}}}          % typewriter {
+\def\ttrbrace{{\tt\symbol{125}}}          % typewriter }
+\long\def\specialitem#1%
+       {\vspace{4ex}\par%
+        \item[{#1}]%
+        \rule{0mm}{0mm}\hss\\[2ex]}
+
+
+\begin{document}
+\begin{center}
+\thispagestyle{empty}
+\vspace*{10ex}
+{\huge\bf Erstellen von Briefen mit Universitätsbriefkopf \par}
+\vspace*{\fill}
+\vspace*{10ex}
+
+{\Large Westfälische Wilhelms-Universität Münster\\
+        Zentrum für Informationsverarbeitung\\[1ex]
+         {St. Arntzen, W. Kaspar, F. Perske}\par}
+\vspace*{\fill}
+\vspace*{\fill}
+{\Large \Datum}
+\vspace*{30ex}
+\end{center}
+\newpage
+
+% Deckelrückseite leer
+\mbox{}
+\thispagestyle{empty}
+\newpage
+
+\setcounter{page}{1}
+
+\parskip 2mm                            % 3.9.92 FP
+\absendername{Stefan Arntzen\\Wolfgang Kaspar}
+\telefon{24\,73}
+\begin{center}
+\vskip2em
+{\LARGE Erstellen von Briefen mit
+            Universitätsbriefkopf}
+\vskip1.5em
+{\large Westfälische Wilhelms-Universität Münster\\
+        Zentrum für Informationsverarbeitung\\
+         {\normalsize St. Arntzen, W. Kaspar, F. Perske}}
+\vskip1em
+{\large \Datum}
+\vskip1.5em
+\end{center}
+
+Über die vom Zentrum für Informationsverarbeitung (ZIV) entwickelte
+\LaTeX"=Dokumentenklasse {\tt BRIEF.CLS} werden \LaTeX-Markierungen
+zur Verfügung gestellt, die das Erstellen von Briefen im neuen
+Corporate Design der WWU unterstützen.
+
+In der vorliegenden Anleitung wird vorausgesetzt, daß dem Anwender das
+Arbeiten mit \LaTeX\ vertraut ist.
+
+{\bf Aufbau eines \LaTeX-Briefes}
+
+Die Eingabedatei eines \LaTeX-Briefes ist folgendermaßen gegliedert:
+%
+\begin{quotation}\noindent
+\verb+\documentclass{wwubrief}+\\
+\verb+\usepackage{ngerman}+\\
+\verb+\usepackage[latin1]{inputenc}+
+\begin{verbatim}
+\begin{document}\end{verbatim}
+\verb+\begin{brief}{+{\it
+Briefkopfdatei\/}\verb+}+
+\vspace{.2cm}
+
+\noindent\rule{0mm}{0mm}\verb+       +{\it Briefvorspann\/}
+\vspace{.2cm}
+
+\noindent\verb+\text+
+\vspace{.2cm}
+
+\noindent\rule{0mm}{0mm}\verb+       +{\it Briefrumpf\/}
+\vspace{.2cm}
+
+\noindent\verb+\end{brief}+\\
+\verb+\end{document}+
+\end{quotation}
+
+Als Dokumentenklasse in der \verb+\documentclass+-Markierung muß {\tt wwubrief}
+angegeben werden.
+Diese Klasse lädt zusätzlich noch das \texttt{graficx}-Paket
+und setzt das Fontencoding auf \texttt{T1}.
+
+Der \LaTeX-Brief wird durch die Markierung \verb+\text+ in zwei
+Abschnitte unterteilt.
+Der erste Abschnitt ist der Briefvorspann. Er umfaßt den Brief bis
+einschließlich der Anrede.
+Der zweite Abschnitt -- der Briefrumpf -- enthält den Brieftext,
+gefolgt vom Gruß, von Hinweisen auf Anlagen etc.
+
+Der Briefvorspann beginnt mit der Markierung
+
+\begin{quotation}\noindent
+\verb+\begin{brief}{+{\it Briefkopfdatei\/}\verb+}+
+\end{quotation}
+
+\pagebreak[4]
+Im Vorspann dürfen folgende Markierungen benutzt werden:
+\vspace*{-4ex}
+\begin{quotation}\noindent
+\begin{description}[\setlabelsize{64mm}]
+\item[{\tt \string\kopien\ttlbrace{\it Nummer\/}\ttrbrace}]
+        Anzahl von Kopien des Briefes
+\item[{\tt \string\absendername\ttlbrace{\it Name\/}\ttrbrace}]
+        Name des Absenders
+\item[{\tt \string\telefon\ttlbrace{\it Telefonnummer\/}\ttrbrace}]
+        Telefonnummer des Absenders
+\item[{\tt \string\fax\ttlbrace{\it Nummer\/}\ttrbrace}]
+        Fax-Nummer des Absenders
+\item[{\tt \string\userid\ttlbrace{\it Benutzerkennung\/}\ttrbrace}]
+        Benutzerkennung des Absenders
+\item[{\tt \string\node\ttlbrace{\it Rechneradresse\/}\ttrbrace}]
+        Rechneradresse für Benutzerkennung
+\item[{\tt \string\datum\ttlbrace{\it Datum\/}\ttrbrace}]
+        Datum für den Briefkopf
+\item[{\tt \string\az\ttlbrace{\it Aktenzeichen\/}\ttrbrace}]
+        Aktenzeichen
+\item[{\tt \string\adresse\ttlbrace{\it Empfängeradresse\/}\ttrbrace}]
+        Adresse des Empfängers
+\item[{\tt \string\mehrfachadresse\ttlbrace{\it Empfängeradressen\/}\ttrbrace}]
+        Mehrere Empfängeradressen auf einem Brief
+\item[{\tt \string\adressdatei\ttlbrace{\it Dateiname\/}\ttrbrace}]
+        Gleicher Brief an mehrere Adressaten. Einzelne Adressen
+        stehen in einer Datei.
+\item[{\tt \string\bezugszeichen\ttlbrace{\it Textzeile\/}\ttrbrace}]
+        Bezugszeichen
+\item[{\tt \string\betr\ttlbrace{\it Textzeile\/}\ttrbrace}]
+        Betreff
+\item[{\tt \string\bezug\ttlbrace{\it Textzeile\/}\ttrbrace}]
+        Bezug
+\item[{\tt \string\anrede\ttlbrace{\it Textzeile\/}\ttrbrace}]
+        Anrede des Empfängers
+\item[{\tt \string\grussformel\ttlbrace{\it Textzeile\/}\ttrbrace}]
+        Grußformel, die am Ende des Briefes gedruckt werden soll.
+\end{description}
+\end{quotation}
+
+Die Argumente der Markierungen des Briefvorspanns werden nicht
+sofort auf der Seite ausgegeben sondern erst zwischengespeichert. Erst
+beim Abschluß des Briefvorspanns mittels der Markierung
+\verb+\text+
+werden alle diese Argumente zusammen mit den restlichen Angaben des
+Briefkopfes ausgegeben. Deshalb kann im Briefvorspann die Reihenfolge
+der Markierungen beliebig gewählt werden.
+
+Die Markierung
+
+\begin{quotation}\noindent
+\verb+\text+
+\end{quotation}
+
+schließt den Vorspann ab und eröffnet den Rumpf des Briefes,
+in dem folgende Markierungen zur Verfügung stehen:
+\vspace*{-4ex}
+\begin{quotation}\noindent
+\begin{description}[\setlabelsize{64mm}]
+\item[{\tt \string\schluss}]
+        Rest wird zusammenhängend gedruckt
+\item[{\tt \string\gruss\ttlbrace{\it Unterzeichner\/}\ttrbrace}]
+        Gruß mit Unterschrift
+\item[{\tt \string\anlage\ttlbrace{\it Anlagenliste\/}\ttrbrace}]
+        Auf Anlagen verweisen
+\item[{\tt \string\ps\ttlbrace{\it Nachsatz\/}\ttrbrace}]
+        Postskriptum
+\end{description}
+\end{quotation}
+
+Im Gegensatz zum Vorspann lösen die Markierungen im Rumpf des Briefes
+direkt die Ausgabe der jeweiligen Argumente aus. Die
+Reihenfolge dieser Markierungen entscheidet also darüber, in welcher
+Reihenfolge die jeweiligen Ausgaben gedruckt werden sollen.
+
+\pagebreak[4]
+Die Markierung
+
+\begin{quotation}\noindent
+\verb+\end{brief}+
+\end{quotation}
+
+schließt den Rumpf und damit den gesamten Brief ab.
+\vspace{.5cm}
+
+{\bf Beschreibung der \LaTeX-Markierungen}
+
+Um den Corporate-Design-Vorgaben der WWU
+zu genügen, sollten die im Folgenden aufgeführten  Stilparameter
+möglichst nicht geändert werden
+(siehe auch http://www.uni-muenster.de/corporate-design/).
+%
+\begin{description}[\setlabelsize{15mm}] % 3.9.92 FP
+\vspace*{-4ex}
+\specialitem{\tt \ttbackslash begin\ttlbrace brief\ttrbrace%
+                              [{\it Bearbeiterdatei\/}]%
+                              \ttlbrace{\it Briefkopfdatei\/}\ttrbrace%
+                              [{\it Stilparameter\/}]%
+            }
+Markierung des Briefbeginns. {\it Briefkopfdatei\/} ist
+dabei der Name einer {\tt STY}-Datei, die das Aussehen des Briefkopfes
+festlegt. Der Briefkopf des Universitätsrechenzentrums ist z.B. in der
+{\it Briefkopfdatei\/} \verb+URZKOPF.STY+ definiert.
+Die {\tt STY}-Datei {\it Bearbeiterdatei\/} enthält
+Markierungen, die in allen Briefen eines Bearbeiters immer den gleichen
+Parameter besitzen (z.B. Name, Telefonnummer).
+Die zulässigen {\it Stilparameter\/} sind in der folgenden Liste
+beschrieben. {\it n\/} steht für eine ganze Zahl ohne Maßeinheit.
+Sie gibt, wenn nichts anderes beim jeweiligen Stilparameter gesagt wird,
+den Abstand in Millimetern zum vorhergehenden Briefteil an. Negative
+oder gebrochene Zahlen sind erlaubt (z.B.~-6.9).
+
+
+\begin{description}[\setlabelsize{10mm}] % 28.7.92 FP
+\item[{\bf Stilparameter}]{\bf Beschreibung}
+
+\item[{\tt \string\absname\ttlbrace an/aus/{\it n\/}\ttrbrace}]
+       Festlegen
+       ob, bzw. wo der Absendername gedruckt werden soll.\\
+       Voreingestellt ist: \verb+\absname{2}+.
+
+\item[{\tt\string\absanschrift\ttlbrace an/aus/{\it n\/}\ttrbrace}]
+       Festlegen, ob die Absenderanschrift -- Straße und Ort -- im
+       rechten Teil des Briefkopfes gedruckt werden sollen.\\
+       Voreingestellt ist: \verb+\absanschrift{1}+.
+
+\item[{\tt\string\absimfenster\ttlbrace an/aus\ttrbrace}]
+       Die Absenderzeile im Brief"|fenster soll, bzw. soll nicht
+       gedruckt werden.\\
+       Voreingestellt ist: \verb+\absimfenster{an}+.
+
+\item[{\tt\string\dat\ttlbrace an/aus/{\it n\/}\ttrbrace}]
+       Festlegen ob, bzw. wo das Datum gedruckt werden soll.\\
+       Voreingestellt ist: \verb+\dat{1}+.
+
+\item[{\tt\string\kopfsep\ttlbrace{\it n\/}\ttrbrace}]
+       Angeben, wo der Brieftext einschließlich Betreff und
+       Bezug anfangen soll. Es wird {\it n\/}
+       Millimeter unter dem Briefkopf begonnen. Es wird jedoch immer
+       soweit nach unten gerückt, daß der Text nicht im
+       Brief"|fenster anfängt.\\
+       Voreingestellt ist: \verb+\kopfsep{0}+.
+
+\ifx\DeclareFontShape\undefined  % LaTeX 2.09
+\else  %  nur für LaTeX2e
+%\enlargethispage{2ex}
+\fi
+\item[{\tt\string\num\ttlbrace an/aus/{\it n\/}\ttrbrace}]
+       Seitennumerierung ein-/ausschalten, bzw. bei der Seitenzahl
+       {\it n\/} starten. Wenn die Numerierung eingeschaltet ist, werden
+       die Seitennummern erst ab der zweiten Seite ausgedruckt!
+       Entsprechend erhält die zweite Seite des Briefes den Wert $n+1$,
+       wenn der Wert $n$ angegeben wurde.\\
+       Voreingestellt ist: \verb+\num{an}+.
+
+\pagebreak[4]
+\item[{\tt\string\randoben\ttlbrace{\it n\/}\ttrbrace}]
+       Explizite Angabe des oberen Seitenrandes. Gilt nur für die
+       zweite und die folgenden Seiten, da sich oben auf der ersten
+       Seite der Briefkopf befindet. Analog zum Stilparameter
+       \verb+\randunten+ ist zu berücksichtigen, daß zwischen oberem
+       Rand und Text eine Seitenkopfzeile angeordnet ist.\\
+       Voreingestellt ist: \verb+\randoben{20}+.
+
+\item[{\tt\string\randunten\ttlbrace{\it n\/}\ttrbrace}]
+       Explizite Angabe des unteren Seitenrandes.
+       Bei Angabe dieses Stilparameters ist zu beachten, daß sich
+       zwischen Text und unterem Rand noch die Seitenfußzeilen
+       befinden.\\
+       Voreingestellt ist: \verb+\randunten{24}+.
+
+\item[{\tt\string\faltmarken\ttlbrace an/aus\ttrbrace}]     %
+       Die Faltmarken am linken Rand der ersten Seite       %
+       sollen, bzw. sollen nicht gedruckt werden.\\         %
+       Voreingestellt ist: \verb+\faltmarken{an}+.          % ^ 28.7.92 FP
+\end{description}
+
+
+\specialitem{\tt \ttbackslash kopien\ttlbrace {\it Anzahl\/}\ttrbrace}
+Die Anzahl der Kopien, die von dem Brief gedruckt werden sollen, kann
+hier angegeben werden. Voreingestellt ist: \verb+\kopien{0}+. Oben
+Rechts auf der jeweils ersten Seite einer jeden Kopie
+kann ein Ablagevermerk ausgegeben werden. Standartmäßig ist das
+{\it 1. Kopie\/}, {\it 2. Kopie\/} usw. Genaueres dazu im Kapitel
+\frqq Zusätzliche Parameter\flqq.
+
+\specialitem{\tt \ttbackslash absendername\ttlbrace{\it Name\/}\ttrbrace}
+Über diese Markierung wird der Name des Bearbeiters angegeben.
+\begin{quotation}\noindent
+\verb+\absendername{Hans Maier}   ==>  +
+{\scriptsize Bearbeiter\ \ \ \ Hans Maier}
+\end{quotation}
+
+\specialitem{\tt \ttbackslash bearbeitertext\ttlbrace{\it Bezeichnung\/}\ttrbrace}
+Als \textit{Bezeichnung} kann z.\,B.
+\frqq Bearbeiterin\flqq\ eingetragen werden.
+\begin{quotation}\noindent
+\parbox[t]{65mm}%
+{\ttbackslash bearbeitertext\ttlbrace Bearbeiterin\ttrbrace\hfill\texttt{==>\ \ }\\
+ \ttbackslash absendername\ttlbrace Martina Mustermann\ttrbrace}
+{\scriptsize Bearbeiterin\ \ \ Martina Mustermann}
+\end{quotation}
+
+\specialitem{\tt \ttbackslash telefon%
+                              \ttlbrace{\it Telefonnummer\/}\ttrbrace}
+Die Telefonnummer des Absenders wird in die Liste der Telefonnummern
+eingefügt.
+\begin{quotation}\noindent
+\verb+\telefon{31673}            ==>  +%
+{\scriptsize Tel. +49\,251\,83-31673}
+\end{quotation}
+
+\specialitem{\tt \ttbackslash userid%
+                     [\ttbackslash node%
+                           \ttlbrace{\it Rechneradresse\/}\ttrbrace]%
+                     \ttlbrace{\it Benutzerkennung\/}\ttrbrace%
+            }
+Die Benutzerkennung des Absenders wird als E-mail-Adresse eingefügt.
+Als optionales Argument kann noch die Markierung \verb+\node+
+angegeben werden.
+\begin{quotation}\noindent
+\verb+\userid{kaspar}              ==>  +%
+{\scriptsize kaspar@uni-muenster.de}
+\end{quotation}
+
+\specialitem{\tt \ttbackslash node%
+                              \ttlbrace{\it Rechneradresse\/}\ttrbrace}
+Bezeichnet die Adresse
+des Rechners, auf dem die Benutzerkennung eingerichtet ist.
+Voreingestellt
+ist \verb+\node{@uni-muenster.de}+.
+\begin{quotation}\noindent
+\parbox[t]{70mm}%
+{\ttbackslash userid\ttlbrace martina.mustermann@\ttrbrace\texttt{\ ==>\ \ }\\%
+ \ttbackslash node\ttlbrace uni-muenster.de\ttrbrace}
+\parbox[t]{40mm}%
+{\scriptsize martina.mustermann@ \\ uni-muenster.de}
+\end{quotation}
+
+\specialitem{\tt \ttbackslash fax\ttlbrace{\it Nummer\/}\ttrbrace} %
+Die Fax-Nummer wird unter der Telefonnummer eingefügt.
+\begin{quotation}\noindent                                         %
+\verb+\fax{(02\,51) 83-20\,90}    ==>  +%                          %
+{\scriptsize Fax (02\,51) 83-20\,90}%                          %
+\end{quotation}
+
+\specialitem{\tt \ttbackslash datum\ttlbrace{\it Datum\/}\ttrbrace}
+Das Datum kann in beliebiger Form eingegeben werden.
+Ist diese Markierung nicht vorhanden so wird das Datum des
+\TeX-Aufrufs eingesetzt.
+\begin{quotation}\noindent
+\verb+\datum{27.9.1985}           ==>  +27.9.1985\\
+\verb+\datum{\today}              ==>  +27. September 1985
+\end{quotation}
+
+\specialitem{\tt \ttbackslash adresse%
+                      \ttlbrace{\it Empfängeradresse\/}\ttrbrace}
+Die Anschrift des Empfängers wird in das Brief\-fenster gesetzt.
+\begin{quotation}\noindent
+\begin{verbatim}
+\adresse{Herrn Hans H. Haarmann\\
+         Wasserweg 13\\
+         12345 Beispielhausen}
+\end{verbatim}
+\adresse{Herrn Hans H. Haarmann\\
+             Wasserweg 13\\
+             12345 Beispielhausen}
+\makeatletter
+\verb+==>  +\vtop {\hsize .5\linewidth
+                   \hbox{}\vspace*{-1cm}
+                   \hbox{\schreibe@fensteradresse}}
+\makeatother
+\end{quotation}
+
+\vspace*{-1cm}
+\specialitem{\tt \ttbackslash nachrichtlich%
+                      \ttlbrace{\it Empfängeradressen\/}\ttrbrace%
+            }
+Mit dieser Markierung lassen sich zusätzlich zur Empfängeradresse
+weitere Adressen im Briefkopf erzeugen.
+Die einzelnen Adressen werden jeweils durch eine Markierung der Form
+\verb+\adresse{+{\it Adresse\/}\verb+}+ erzeugt. Es dürfen so viele
+Adressen angegeben werden, wie auf die erste Seite passen. Die
+zusätzlichen Adressen beginnen unter dem Brieffenster. Es ist auch
+möglich die Schriftgröße zu ändern oder normalen Text auszugeben,
+etwa das Wort \frqq Nachrichtlich:\flqq.\vspace{-4mm}
+\begin{quotation}\noindent
+\begin{verbatim}
+\adresse{Peter Maurer\\Postweg 3\\
+              12345 Beispielhausen}
+\nachrichtlich{\small Nachrichtlich:\\[4ex]
+    \adresse{Firma Maier\\Postfach\\
+             12627 Berlin}
+    }
+\end{verbatim}
+\adresse{Peter Maurer\\Postweg 3\\
+                      12345 Beispielhausen}
+\nachrichtlich{\small Nachrichtlich:\\[4ex]
+             \adresse{Firma Maier\\Postfach\\
+                     12627 Berlin}
+             }
+\makeatletter
+\verb+==>  +\vtop {\hsize .5\linewidth\vspace*{-10mm}
+                   \hbox{}\hbox{\vspace*{-10mm}\schreibe@fensteradresse}
+                          \hbox{\schreibe@nachrichtlich}}
+\makeatother
+\vspace*{-1cm}
+\end{quotation}
+
+
+\specialitem{\tt \ttbackslash az\ttlbrace{\it Aktenzeichen\/}\ttrbrace}
+Die Aktenzeichennotiz wird direkt unter das Datum gesetzt.
+\begin{quotation}\noindent
+\verb+\az{80/76}                  ==>  +Az.: 80/76
+\end{quotation}
+
+\specialitem{\parbox{6cm}
+                    {\tt \ttbackslash bezugszeichen%
+                           \ttlbrace{\it Textzeile\/}\ttrbrace\\[2mm]
+                     \tt \ttbackslash betr%
+                           [\ttbackslash skip\ttlbrace{\it n\/}\ttrbrace]%
+                           \ttlbrace{\it Textzeile\/}\ttrbrace\\[2mm]
+                     \tt \ttbackslash bezug
+                           [\ttbackslash skip\ttlbrace{\it n\/}\ttrbrace]%
+                           \ttlbrace{\it Textzeile\/}\ttrbrace%
+                    }%
+            }
+Hiermit wird der Betreff und der Bezug des Briefes markiert.
+\begin{quotation}
+\makeatletter
+\betr{Neuer Brief-Style}
+\bezug{Ihre Anregung \ldots}
+\noindent
+\verb+\betr{Neuer Brief-Style}        ==>  +\\
+\verb+\bezug{Ihre Anregung \ldots}         +
+\parbox[t]{.3\linewidth}
+                {\vspace*{-2.7\normalskip}\@betrtext\par
+                 \vspace{\@bezugskip\normalskip}
+                 \noindent\@bezugtext}\vspace{.5cm}
+\makeatother
+\end{quotation}
+
+{\it Textzeile\/} ist ein beliebiger Text. Der optionale Stilparameter
+\verb+\skip+ gibt an, wieviele Leerzeilen
+vor Bezug oder Betreff eingefügt werden sollen. Voreingestellt
+ist jeweils der Wert 2.
+\begin{quotation}
+\makeatletter
+\bezugszeichen{Ihr Zeichen: E1 567}
+\betr{Neuer Brief-Style}
+\bezug[\skip{1}]{Ihre Anregung \ldots}
+\noindent
+\verb+\bezugszeichen{Ihr Zeichen:     ==>  +\\
+\rule{0mm}{0mm}\verb+                   E1 567}           +\\
+\verb+\betr{Neuer Brief-Style}             +\\
+\verb+\bezug[\skip{1}]                     +\\
+\rule{0mm}{0mm}\verb+      {Ihre Anregung \ldots}         +
+\parbox[t]{.3\linewidth}
+                 {\vspace*{-7.9\normalskip}\@bezugszeichen\par
+                  \vspace{\@betrskip\normalskip}
+                  \@betrtext\par
+                  \vspace{\@bezugskip\normalskip}
+                 \noindent\@bezugtext}
+\makeatother
+\end{quotation}
+
+\specialitem{\tt \ttbackslash anrede%
+                       [\ttbackslash skip\ttlbrace{\it n\/}\ttrbrace]%
+                       \ttlbrace{\it Textzeile\/}\ttrbrace%
+            }
+{\it Textzeile\/} wird als Anrede gedruckt.
+Der optionale Stilparameter \verb+\skip+ gibt an, wieviele Leerzeilen
+vor der Anrede
+freigelassen werden sollen. Voreingestellt ist der Wert 2.
+
+\specialitem{\tt \ttbackslash grussformel\ttlbrace{\it Textzeile\/}\ttrbrace}
+Mit dieser Markierung wird die Grußformel definiert, die am Ende des
+Briefes gedruckt werden soll. Voreingestellt ist: \frqq Mit freundlichen
+Grüßen\flqq.
+
+\specialitem{\tt \ttbackslash text%
+                      [\ttbackslash skip\ttlbrace{\it n\/}\ttrbrace]}
+Diese Markierung beendet den Briefvorspann. Der gesamte Briefkopf bis
+zur Anrede wird hiermit abgeschlossen. Nach dieser Markierung
+beginnt der Rumpf mit dem Text des Briefes.
+Der optionale Stilparameter \verb+\skip+ gibt an, wieviele
+Leerzeilen vor dem Text
+freigelassen werden sollen. Der Wert 1 ist voreingestellt.
+%\pagebreak
+
+\specialitem{\tt \ttbackslash schluss}
+Diese Markierung bewirkt, daß der hiernach folgende Teil
+des Briefes zusammenhängend
+gedruckt wird. Er wird also entweder auf der laufenden Seite oder --
+falls er nicht mehr auf diese Seite paßt -- auf die nächste Seite
+gedruckt.
+
+\specialitem{\tt \ttbackslash gruss%
+                        [\ttbackslash skip\ttlbrace{\it n\/}\ttrbrace%
+                         \ttbackslash ia%
+                         \ttbackslash iv]%
+                        \ttlbrace{\it Unterzeichner\/}\ttrbrace%
+            }
+Mit dieser Markierung wird ein Gruß unter den Brief geschrieben.
+{\it Unterzeichner\/} wird als Name unter den Gruß
+geschrieben. Wurde kein Name, d.h. \verb+{}+, angegeben, dann wird der
+Name eingesetzt, der unter \verb+\absendername+ im Vorspann des Briefes
+angegeben wurde. Mit \verb+{\ }+ kann die Ausgabe eines Namens
+unterdrückt werden. Als optionale Argumente können angegeben werden:
+
+\begin{description}[\setlabelsize{24mm}]
+\item[{\tt \string\skip\ttlbrace{\it n\/}\ttrbrace}]Dieser Stilparameter
+gibt an, wieviele
+Leerzeilen zwischen dem Text und dem Gruß freigelassen werden sollen.
+Voreingestellt ist der Wert 2.
+\item[{\tt \string\ia}]Vor dem Namen des Grußes wird das Kürzel
+\frqq i.A.\flqq\ eingefügt.
+\item[{\tt \string\iv}]Vor dem Namen des Grußes wird das Kürzel
+\frqq i.V.\flqq\ eingefügt.
+\end{description}
+
+Beispiel:
+\begin{quotation}\noindent
+\verb+\gruss[\ia]{H. Kaiser}      ==> +%
+\parbox[t]{.4\linewidth}
+{\textwidth=\linewidth\gruss[\ia\skip{-1}]{H. Kaiser}}
+\end{quotation}
+
+\specialitem{\tt \ttbackslash anlage%
+                        [\ttbackslash skip\ttlbrace{\it n\/}\ttrbrace%
+                         \ttbackslash wort\ttlbrace{\it Text\/}\ttrbrace%
+                         \ttbackslash textrechts%
+                         \ttbackslash textunten]%
+                        \ttlbrace{\it Anlagenliste\/}\ttrbrace%
+            }
+Mit dieser Markierung kann auf eventuell vorhandene Anlagen
+hingewiesen werden.
+Der Stilparameter \verb+\skip+ gibt an, wieviele Leerzeilen
+zwischen dem Gruß und dem Anlagenverzeichnis eingefügt werden sollen.
+Voreingestellt ist der Wert 2.
+Über den Stilparameter \verb+\wort+ kann festgelegt werden, welcher
+{\it Text\/} vor oder über die {\it Anlagenliste\/} gesetzt werden
+soll. Voreingestellt ist \verb+\wort{Anlage:}+.
+Mit \verb+\textrechts+ oder
+\verb+\textunten+ kann angegeben werden, ob die {\it Anlagenliste\/}
+rechts neben den {\it Text\/} oder darunter gesetzt werden soll.
+\verb+\textrechts+ ist dabei voreingestellt.
+Um die Anlagen in der {\it Anlagenliste\/} untereinander ausgeben zu
+lassen, sollten sie durch die Markierung \verb+\\+ voneinander getrennt
+werden.
+\begin{quotation}\noindent
+\begin{verbatim}
+\anlage[\wort{Anlagen:}\textunten]{Diskette\\Liste}
+\end{verbatim}
+
+\rule{0mm}{0mm}\verb+                         ==>  +%
+\parbox[t]{.3\linewidth}
+     {\anlage[\wort{Anlagen:}\textunten\skip{-1}]%
+                      {Diskette\\Liste}}
+\end{quotation}
+
+
+\specialitem{\tt \ttbackslash ps%
+                        [\ttbackslash skip\ttlbrace{\it n\/}\ttrbrace%
+                         \ttbackslash wort\ttlbrace{\it Text\/}\ttrbrace%
+                         \ttbackslash textrechts%
+                         \ttbackslash textunten]%
+                         \ttlbrace{\it Nachsatz\/}\ttrbrace%
+            }
+Mit dieser Markierung kann noch ein Nachsatz an den
+fertigen Brief angehängt werden.
+Der Stilparameter \verb+\skip+ gibt an, wieviele Leerzeilen
+vor dem Postscriptum eingefügt werden sollen.
+Voreingestellt ist der Wert 2.
+Über den Stilparameter \verb+\wort+ kann festgelegt werden, welcher
+{\it Text\/} vor oder über den {\it Nachsatz\/} gesetzt werden
+soll. Voreingestellt ist \verb+\wort{PS:}+.
+Mit \verb+\textrechts+ oder
+\verb+\textunten+ kann angegeben werden, ob der {\it Nachsatz\/} rechts
+neben den {\it Text\/} oder darunter gesetzt werden soll.
+\verb+\textrechts+ ist dabei voreingestellt.
+\begin{quotation}\noindent
+\verb+\ps{Leider habe ich ...}  ==>  +PS: Leider habe ich \ldots
+\end{quotation}
+
+\specialitem{\tt \ttbackslash end\ttlbrace{\it Brief\/}\ttrbrace}
+Markierung des Briefendes.
+\end{description}
+\vspace{2cm}
+
+{\bf Zusätzliche Parameter}
+
+\begin{description}[\setlabelsize{24mm}]
+
+\specialitem{\tt \ttbackslash kopien\ttlbrace {\it
+                                             Anzahl\/}\ttrbrace%
+                           [{\it Ablagevermerke\/}]}%
+Der optionale Parameter {\it Ablagevermerke\/} gibt an, was als
+Ablagevermerk auf der ersten
+Seiten einer jeden Kopien stehen soll. Pro Kopie steht hier eine
+Ablagevermerkmarkierung, die über die Endziffer in
+\verb+\ablagevermerk+{\it Nr\/} der entsprechenden Kopie zugeordnet
+wird. Wurde die Anzahl der Kopien auf 3 gesetzt so stehen also
+\verb+\ablagevermerk1{+{\it Text\/}\verb+}+,
+\verb+\ablagevermerk2{+{\it Text\/}\verb+}+ und
+\verb+\ablagevermerk3{+{\it Text\/}\verb+}+ zur Verfügung.
+{\it Text\/} bezeichnet dabei den auf die Kopie zu schreibenden Text.
+\verb+\ablagevermerk1{1. Kopie}+
+bedeutet daher, daß auf der ersten Kopie oben
+rechts \frqq 1. Kopie\flqq\
+steht. Soll auf z.B. der zweiten Kopie das Aktenzeichen aus dem Brief
+stehen,
+kann dies durch \verb+\ablagevermerk2{\schreibeaz}+ erreicht werden.
+Die
+Voreinstellung für Kopien kann mit der Markierung
+\verb+\kopien@voreinstellung+ (s.u.) vorgenommen werden. Standardmäßig
+erscheint auf den ersten drei Kopien \frqq 1. Kopie\flqq,
+\frqq 2. Kopie\flqq, \frqq 3. Kopie\flqq.
+
+\specialitem{\tt \ttbackslash kopien@voreinstellung\ttlbrace {\it
+                                             Anzahl\/}\ttrbrace%
+                           [{\it Ablagevermerke\/}]}%
+Diese Markierung hat die gleiche Form wie \verb+\kopien+. Die hiermit
+definierten Ablagevermerke der einzelnen Kopien erscheinen, solange
+nicht durch \verb+\kopien+ für die jeweilige Kopie explizit ein anderer
+Ablagevermerk angegeben wird. Die Voreinstellung kann nur in der {\it
+Briefkopfdatei\/} oder in der {\it Bearbeiterdatei\/} vorgenommen werden
+(wegen des \verb+@+-Zeichens) und ist für dauerhafte Änderungen
+vorgesehen.
+
+\end{description}
+
+
+
+\newpage
+{\bf Beispielbrief:}
+\vspace{6mm}
+
+
+\begin{verbatim}
+% Dies ist BEISP1.TEX vom 06.05.2008
+% Beispiel zum Brief mit Uni-Briefkopf
+\documentclass{wwubrief}
+\usepackage{ngerman}
+\usepackage[latin1]{inputenc}
+\begin{document}
+\begin{brief}{kopf_name}
+%
+%       ----- Beginn Brief-Vorspann -----
+%
+\kopien{1}[\ablagevermerk1{Die erste Kopie}]
+\adresse{An alle \\
+         Mitarbeiter des Instituts}
+\absendername{Martina Mustermann}
+\bearbeitertext{Bearbeiterin}
+\telefon{12345}
+\fax{12346}
+\userid{martina.mustermann@\\}
+\node{uni-muenster.de}
+\betr{Neuer \TeX-Brief}
+\bezug{Ihre Anregung \ldots}
+\anrede{Liebe Kolleginnen und Kollegen,}
+%
+%       ----- Ende Brief-Vorspann -----
+%
+\text
+%
+%       ----- Beginn Brief-Rumpf -----
+%
+Hier steht der Brieftext, der beliebig formatiert werden kann.
+\schluss
+Zu diesem Zweck sind die normalen \TeX-Markierungen zu verwenden.
+\gruss[\ia]{}
+\anlage[\wort{\bf Anlagen:}]{Dokumentation\\
+                             CD}
+\ps[\skip{4}\textunten\wort{\bf PS:}]
+  {Dies ist der formatierte Brief zu {\tt BEISP1.TEX}}
+%
+%       ----- Ende Brief-Rumpf -----
+%
+\end{brief}
+\end{document}
+\end{verbatim}
+
+
+\newpage
+{\bf Beispielbrief mit einer \textit{Bearbeiterdatei}:}
+\vspace{6mm}
+
+
+\begin{verbatim}
+% Dies ist BEISP2.TEX vom 06.05.2008
+% Beispiel zum Brief mit Uni-Briefkopf
+\documentclass{wwubrief}
+\usepackage{ngerman}
+\usepackage[latin1]{inputenc}
+\begin{document}
+\begin{brief}[bearbeiter]{kopf_logo}
+%
+%       ----- Beginn Brief-Vorspann -----
+%
+\adresse{An alle \\
+         Mitarbeiter des Instituts}
+\betr{Neuer \TeX-Brief}
+\bezug{Ihre Anregung \ldots}
+\anrede{Liebe Kolleginnen und Kollegen,}
+%
+%       ----- Ende Brief-Vorspann -----
+%
+\text
+%
+%       ----- Beginn Brief-Rumpf -----
+%
+Hier steht der Brieftext, der beliebig formatiert werden kann.
+\schluss
+Zu diesem Zweck sind die normalen \TeX-Markierungen zu verwenden.
+\gruss[\ia]{}
+\anlage[\wort{\bf Anlagen:}]{Dokumentation\\
+                             CD}
+\ps[\skip{4}\textunten\wort{\bf PS:}]
+  {Dies ist der formatierte Brief zu {\tt BEISP2.TEX}}
+%
+%       ----- Ende Brief-Rumpf -----
+%
+\end{brief}
+\end{document}
+\end{verbatim}
+
+Die {\it Bearbeiterdatei\/} sieht dabei folgendermaßen aus:
+
+\begin{verbatim}
+% Dies ist BEARBEITER.STY vom 06.05.2008
+\absendername{Martina Mustermann}
+\bearbeitertext{Bearbeiterin}
+\telefon{12345}
+\fax{12346}
+\userid{martina.mustermann@\\}
+\node{uni-muenster.de}
+\end{verbatim}
+
+%--------------------------------------------------------
+\newpage
+
+\begin{brief}{kopf_name}
+%
+%       ----- Beginn Brief-Vorspann -----
+%
+\kopien{1}[\ablagevermerk1{Die erste Kopie}]
+\adresse{An alle \\
+         Mitarbeiter des Instituts}
+\absendername{Martina Mustermann}
+\bearbeitertext{Bearbeiterin}
+\telefon{12345}
+\fax{12346}
+\userid{martina.mustermann@\\}
+\node{uni-muenster.de}
+\betr{Neuer \TeX-Brief}
+\bezug{Ihre Anregung \ldots}
+\anrede{Liebe Kolleginnen und Kollegen,}
+%
+%       ----- Ende Brief-Vorspann -----
+%
+\text
+%
+%       ----- Beginn Brief-Rumpf -----
+%
+Hier steht der Brieftext, der beliebig formatiert werden kann.
+\schluss
+Zu diesem Zweck sind die normalen \TeX-Markierungen zu verwenden.
+\gruss[\ia]{}
+\anlage[\wort{\bf Anlagen:}]{Dokumentation\\
+                             CD}
+\ps[\skip{4}\textunten\wort{\bf PS:}]
+  {Dies ist der formatierte Brief zu {\tt BEISP1.TEX}}
+%
+%       ----- Ende Brief-Rumpf -----
+%
+\end{brief}
+
+\newpage
+
+\begin{brief}[bearbeiter]{kopf_logo}
+%
+%       ----- Beginn Brief-Vorspann -----
+%
+\adresse{An alle \\
+         Mitarbeiter des Instituts}
+\betr{Neuer \TeX-Brief}
+\bezug{Ihre Anregung \ldots}
+\anrede{Liebe Kolleginnen und Kollegen,}
+%
+%       ----- Ende Brief-Vorspann -----
+%
+\text
+%
+%       ----- Beginn Brief-Rumpf -----
+%
+Hier steht der Brieftext, der beliebig formatiert werden kann.
+\schluss
+Zu diesem Zweck sind die normalen \TeX-Markierungen zu verwenden.
+\gruss[\ia]{}
+\anlage[\wort{\bf Anlagen:}]{Dokumentation\\
+                             CD}
+\ps[\skip{4}\textunten\wort{\bf PS:}]
+  {Dies ist der formatierte Brief zu {\tt BEISP2.TEX}}
+%
+%       ----- Ende Brief-Rumpf -----
+%
+\end{brief}
+
+% -------------------------------------------------------------
+\newpage
+
+{\bf Beispiel für ein Rückantwortschreiben:}
+\vspace{6mm}
+
+\begin{verbatim}
+% Dies ist RUECKANT.TEX vom 1.2.90 Ar
+\documentclass{wwubrief}
+\usepackage{ngerman}
+\usepackage[latin1]{inputenc}
+\begin{document}
+\begin{brief}{rueckant}
+
+\adresse{An das\\
+         Institut XYZ\\
+         an der WWU\\
+         Herrn Dr. D. Veranstalter\\
+         48149 Münster}
+
+\text
+Rückantwort zur XYZ-Veranstaltung am 11.11.11 zum Thema
+
+{\bf Rückantwortschreiben:}
+
+\begin{itemize}
+\item Einleitung
+\item Vortag von D. Veranstalter
+\end{itemize}
+
+\vspace{2cm}
+Sehr geehrter Herr Dr. Veranstalter
+
+an der Veranstaltung
+
+\fbox{\phantom{M}}\ \ \ nehme ich teil
+
+\fbox{\phantom{M}}\ \ \ nehme ich nicht teil
+
+\gruss{(Unterschrift)}
+\end{brief}
+\end{document}
+\end{verbatim}
+\pagebreak
+
+
+\begin{brief}{rueckant}
+
+\adresse{An das\\
+         Institut XYZ\\
+         an der WWU\\
+         Herrn Dr. D. Veranstalter\\
+         48149 Münster}
+
+\text
+Rückantwort zur XYZ-Veranstaltung am 11.11.11 zum Thema
+
+{\bf Rückantwortschreiben:}
+
+\begin{itemize}
+\item Einleitung
+\item Vortag von D. Veranstalter
+\end{itemize}
+
+\vspace{2cm}
+Sehr geehrter Herr Dr. Veranstalter
+
+an der Veranstaltung
+
+\fbox{\phantom{M}}\ \ \ nehme ich teil
+
+\fbox{\phantom{M}}\ \ \ nehme ich nicht teil
+
+\gruss{(Unterschrift)}
+\end{brief}
+
+\end{document}

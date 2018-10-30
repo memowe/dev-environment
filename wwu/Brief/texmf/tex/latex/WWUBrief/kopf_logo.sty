@@ -1,0 +1,96 @@
+% Version 4.0:  Neues Layout im Corporate Design der WWU (2017)
+% Umgearbeitet für das neue CD der WWU von
+% Ulrich Grabowsky, grabowsky@satzundsonders.de, 15.08.2017.
+% Die geaenderten Stellen sind mit gu gekennzeichnet.
+% Es duerfte fuer die Umgestaltung vorhandener Stildateien
+% einfacher sein, nur die hier bearbeiteten Stellen
+% anzupassen.
+% Wesentliche Änderungen in dieser Datei:
+% -- Das neue Logo (WWU_Logo2017) ersetzt das alte.
+% -- \@organisationseinheittext soll jetzt in Versalien stehen.
+% -- Bearbeiter ist nicht mehr ausgerückt, sondern steht oberhalb
+%   des Namens.
+% Dies ist kopf_logo.sty Kr/Ar
+\def\filedate{15.08.2017}
+\def\fileversion{V 4.0}
+% Das File enthält die Definition eines Uni-Musterbriefkopfes.
+%
+% Version 3.0:  Neues Layout im Corporate Design der WWU (2008)
+
+\@ifundefined{wlogWWUkopf_logo}%
+   {\wlog{Briefkopfstil: \filename, (basierend auf ZIV/Kr Vers. 3) Vers. \fileversion, \filedate\space sns/gu}
+    \gdef\wlogWWUkopf_logo{}}%
+   {}
+
+\ifErsterAufruf@Briefkopf\ErsterAufruf@Briefkopffalse\fi
+
+%% Hier wird das Aussehen der im Briefkopf auftretenden Blöcke wie %%
+%% die Telefonnummern oder das Institutslogo definiert.            %%
+
+\def\@institutslogotext%
+               {\raisebox{0mm}%
+                    {\parbox[b]{64.2mm}%
+                       {\centering
+                        \includegraphics[width=64.2mm, trim=2.5mm 0pt 0pt 0pt]{WWUMuenster_Logo_2017_4c}\\[2mm]%      15.08.2017 gu
+                       }%
+                    }%
+                \hspace{52.8mm}%                                                  15.08.2017 gu
+                \raisebox{2mm}[0mm][0mm]%
+                    {\makebox[0mm][l]{%
+  %                      \includegraphics[height=20mm,clip]{logo}%
+                         \parbox[b]{60mm}{%
+                              Institutslogo Zone für Logos von
+                              Fachbereichen, Instituten, SFBs etc.
+                              H: max. 20mm, B: max. 60mm
+                             }%
+                       }%
+                    }%
+                \par
+               }
+
+\def\@absimfenstertext{%
+           WWU Münster
+           $|$ Institut
+           $|$ Stra\ss e Nr
+           $|$ 48149 M\"{u}nster}
+
+\def\@organisationseinheittext{%  Standardschriftgröße \SG@Orga 7.5pt
+           PROF. DR. MAX MUSTER \par%                                       15.08.2017 gu
+           GESCHÄFTSFÜHRENDER DIREKTOR}
+
+\def\@absanschrifttext{%
+           Stra\ss e Nummer \\
+           D-48149 M\"{u}nster}
+
+\def\@absnametext{%
+         \ifx\@empty\@absname
+            \else
+            \makebox[0mm][l]{\@bearbeitertext
+                % Den Doppelpunkt fuegen wir nur ein, wenn der              15.08.2017 gu
+                % Bearbeiter tatsaechlich genannt werden soll.
+                \ifx\@empty\@bearbeitertext\else:\fi
+                }\par%
+            \makebox[0mm][l]{\@absname}%
+            \\[1ex]
+            \ifx\@empty\@abstel
+                \else
+                \makebox[0mm][l]{Tel. +49\,251\,83-\@abstel}%
+                \fi
+            \ifx\@absfax\@empty
+                \else
+                \\
+                \makebox[0mm][l]{Fax +49\,251\,83-\@absfax}%
+                \fi
+            \\[1ex]
+            \ifx\@absuserid\@empty
+                \else
+                \makebox[0mm][l]{%
+                   \parbox{40mm}{%
+                       \lowercase\expandafter{\@absuserid}%
+                       \lowercase\expandafter{\@absnode}%
+                       }%
+                   }%
+                \fi
+            \fi
+         }%
+

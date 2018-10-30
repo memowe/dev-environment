@@ -1,0 +1,80 @@
+% Dies ist kopf_name.sty Kr/Ar
+\def\filename{kopf_name}
+\def\filedate{ 06.05.2008 }
+\def\fileversion{V 3.0}
+% Das File enthält die Definition eines Uni-Musterbriefkopfes.
+%
+% Version 3.0:  Neues Layout im Corporate Design der WWU (2008)
+
+\@ifundefined{wlogWWUkopf_logo}%
+   {\wlog{Briefkopfstil: \filename, Vers. \fileversion,\filedate ZIV/Kr}
+    \gdef\wlogWWUkopf_logo{}}%
+   {}
+
+\ifErsterAufruf@Briefkopf\ErsterAufruf@Briefkopffalse\fi
+
+%% Hier wird das Aussehen der im Briefkopf auftretenden Blöcke wie %%
+%% die Telefonnummern oder das Institutslogo definiert.            %%
+
+\def\@institutslogotext%
+               {\raisebox{0mm}%
+                    {\parbox[b]{85mm}%
+                       {\centering
+                        \includegraphics[width=85mm,clip]{WWU_Logo1_4c_bb}\\[2mm]
+                       }%
+                    }%
+                \hspace{57mm}%
+                \raisebox{10mm}[0mm][0mm]%
+                    {\makebox[0mm][l]{%
+                         \parbox[t]{35mm}{%
+                              Name des Fachbereichs, Instituts, SFBs etc.,
+                              sofern kein Logo vorhanden
+                             }%
+                       }%
+                    }%
+                \par
+               }
+
+\def\@absimfenstertext{%
+           WWU Münster
+           $|$ Institut
+           $|$ Stra\ss e Nr
+           $|$ 48149 M\"{u}nster}
+
+\def\@organisationseinheittext{%  Standardschriftgröße \SG@Orga 7.5pt
+           {\small Prof. Dr. Max Muster \par}  %  \small entspricht 10pt
+           Geschäftsführender Direktor}
+
+\def\@absanschrifttext{%
+           Stra\ss e Nummer \\
+           D-48149 M\"{u}nster}
+
+\def\@absnametext{%
+         \ifx\@empty\@absname
+            \else
+            \makebox[0mm][l]{\@absname}%
+            \hspace{-5mm}%
+            \makebox[0mm][r]{\@bearbeitertext}%
+            \\[1ex]
+            \ifx\@empty\@abstel
+                \else
+                \makebox[0mm][l]{Tel. +49\,251\,83-\@abstel}%
+                \fi
+            \ifx\@absfax\@empty
+                \else
+                \\
+                \makebox[0mm][l]{Fax +49\,251\,83-\@absfax}%
+                \fi
+            \\[1ex]
+            \ifx\@absuserid\@empty
+                \else
+                \makebox[0mm][l]{%
+                   \parbox{40mm}{%
+                       \lowercase\expandafter{\@absuserid}%
+                       \lowercase\expandafter{\@absnode}%
+                       }%
+                   }%
+                \fi
+            \fi
+         }%
+
