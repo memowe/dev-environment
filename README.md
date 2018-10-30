@@ -49,11 +49,9 @@ Have a look at the [build targets](Makefile) for more information.
 
 All this is orchestrated with a funky [Makefile](Makefile).
 
-## Author and license
+## Author
 
 (c) 2018 [Mirko Westermeier](http://mirko.westermeier.de/)
-
-Released under the [MIT License](LICENSE).
 
 ## Resources
 
