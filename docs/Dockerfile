@@ -7,6 +7,7 @@ RUN apt-get update && \
         pandoc \
         texlive \
         texlive-latex-recommended \
+        texlive-latex-extra \
         texlive-lang-german \
         texlive-humanities
 
