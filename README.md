@@ -44,8 +44,14 @@ Have a look at the [build targets](Makefile) for more information.
 - **[docs](docs/Dockerfile)**
     - LaTeX/Pandoc for documents
 
+- **[wwu](wwu/Dockerfile)**
+    - [WWU][] corporate identity files in `/usr/share/wwu`
+    - Convenience script `wwubrief` for markdown compilation
+
 - **[user](user/Dockerfile)**
-    - `vim` etc. configuration
+    - vim etc. configuration
+
+[WWU]: https://www.wwu.de
 
 All this is orchestrated with a funky [Makefile](Makefile).
 
