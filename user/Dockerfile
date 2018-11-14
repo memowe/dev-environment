@@ -1,12 +1,11 @@
 FROM ubuntu:18.04
 
-ENV NAME memowe
-ENV HOME /home/$NAME
+ENV HOME /home/memowe
 
 # Prepare userland
-RUN useradd -m -d $HOME $NAME && \
+RUN useradd -m -d $HOME memowe && \
     mkdir -p $HOME && \
-    chown -R $NAME:$NAME $HOME
+    chown -R memowe:memowe $HOME
 WORKDIR $HOME
 
 # Install vim configuration environment
@@ -14,21 +13,18 @@ RUN git clone --recurse-submodules https://github.com/memowe/vim-conf.git .vim
 RUN cd .vim/bundle/command-t/ruby/command-t/ext/command-t && \
     ruby extconf.rb && \
     make
-RUN chown -R $NAME:$NAME .vim
+RUN chown -R memowe:memowe .vim
 
 # Install tmux configuration
-COPY tmux.conf .tmux.conf
-RUN chown $NAME:$NAME .tmux.conf
+COPY --chown=memowe:memowe tmux.conf .tmux.conf
 
 # Install git configuration
-COPY gitconfig .gitconfig
-RUN chown $NAME:$NAME .gitconfig
+COPY --chown=memowe:memowe gitconfig .gitconfig
 
 # git autocomplete
-COPY git-completion.bash .git-completion.bash
-COPY git-completion_bashrc .bashrc
-RUN chown $NAME:$NAME .git-completion.bash .bashrc
+COPY --chown=memowe:memowe git-completion.bash .git-completion.bash
+COPY --chown=memowe:memowe git-completion_bashrc .bashrc
 
 # Go to userland
-USER $NAME
+USER memowe
 CMD ["/bin/bash"]
