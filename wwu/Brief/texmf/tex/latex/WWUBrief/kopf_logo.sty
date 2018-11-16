@@ -38,10 +38,9 @@
                 \raisebox{2mm}[0mm][0mm]%
                     {\makebox[0mm][l]{%
   %                      \includegraphics[height=20mm,clip]{logo}%
-                         \parbox[b]{60mm}{%
-                              Institutslogo Zone für Logos von
-                              Fachbereichen, Instituten, SFBs etc.
-                              H: max. 20mm, B: max. 60mm
+                        \hspace{25mm}\parbox[b]{60mm}{%
+                             \huge \textbf{SCDH} \\
+                             \scriptsize Service Center \\ Digital Humanities
                              }%
                        }%
                     }%
@@ -50,47 +49,19 @@
 
 \def\@absimfenstertext{%
            WWU Münster
-           $|$ Institut
-           $|$ Stra\ss e Nr
-           $|$ 48149 M\"{u}nster}
+           $|$ Service Center Digital Humanities }
 
 \def\@organisationseinheittext{%  Standardschriftgröße \SG@Orga 7.5pt
-           PROF. DR. MAX MUSTER \par%                                       15.08.2017 gu
-           GESCHÄFTSFÜHRENDER DIREKTOR}
+    \hspace{.3mm}\textbf{Dipl. Inf. Mirko Westermeier}\par% 15.08.2017 gu
+    \hspace{.3mm}Software Developer}
 
 \def\@absanschrifttext{%
-           Stra\ss e Nummer \\
-           D-48149 M\"{u}nster}
+           Scharnhorststraße 103-109 \\
+           48143 Münster}
 
 \def\@absnametext{%
-         \ifx\@empty\@absname
-            \else
-            \makebox[0mm][l]{\@bearbeitertext
-                % Den Doppelpunkt fuegen wir nur ein, wenn der              15.08.2017 gu
-                % Bearbeiter tatsaechlich genannt werden soll.
-                \ifx\@empty\@bearbeitertext\else:\fi
-                }\par%
-            \makebox[0mm][l]{\@absname}%
-            \\[1ex]
-            \ifx\@empty\@abstel
-                \else
-                \makebox[0mm][l]{Tel. +49\,251\,83-\@abstel}%
-                \fi
-            \ifx\@absfax\@empty
-                \else
-                \\
-                \makebox[0mm][l]{Fax +49\,251\,83-\@absfax}%
-                \fi
-            \\[1ex]
-            \ifx\@absuserid\@empty
-                \else
-                \makebox[0mm][l]{%
-                   \parbox{40mm}{%
-                       \lowercase\expandafter{\@absuserid}%
-                       \lowercase\expandafter{\@absnode}%
-                       }%
-                   }%
-                \fi
-            \fi
-         }%
+    \makebox[0mm][l]{Telefon: +49\,\,(0)251\,\,83\,-\,25295}
+    \\
+    \makebox[0mm][l]{E-Mail: mirko.westermeier@wwu.de}
+ }%
 
