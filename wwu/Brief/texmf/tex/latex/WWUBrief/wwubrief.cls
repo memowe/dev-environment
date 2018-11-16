@@ -9,24 +9,24 @@
 %                      -- Ausgabe des Datums in der Betreffzeile
 %                      -- Aktenzeichen und VAT ausgeschaltet
 %                      Ulrich Grabowsky, satz&sonders GmbH, grabowsky@satzundsonders.de
-% 01.07.2008 V 1.1 Kr  Schriftgröße 10.5pt, 7.5pt gesetzt auf 10.95pt, 7pt
+% 01.07.2008 V 1.1 Kr  SchriftgrÃ¶ÃŸe 10.5pt, 7.5pt gesetzt auf 10.95pt, 7pt
 % 07.05.2008 V 1.0 Kr  Angepasst an WWU-CD und in wwubrief umbenannt
 % 19.01.2004 V 5.1 Kr  Voreinstellung von \@absnode ist jetzt {uni-muenster.de}
-% 25.04.2003 V 5.0 Kr  Output-Routine von LaTeX2e 2001/06/01 übernommen.
+% 25.04.2003 V 5.0 Kr  Output-Routine von LaTeX2e 2001/06/01 Ã¼bernommen.
 %                      \adressdatei kann wieder verwendet werden, da auf Grund
 %                      der neuen Output-Routine Umlaute gesetzt werden.
 % 11.12.2001 V 4.0 Kr  spezielle ZIV-Version
 % 29.11.2001 V 3.7 Kr  Leerzeichen in "i. A." und "i. V."
 % 29.11.2001 V 3.7 Kr  ngerman an Stelle von german
-% 27.10.1999 V 3.6 Kr  Adressenfenster-vbox von 30 mm auf 35mm erhöht
+% 27.10.1999 V 3.6 Kr  Adressenfenster-vbox von 30 mm auf 35mm erhÃ¶ht
 % 11.03.1998 V 3.5 Kr  Institutslogo wurde nicht zentriert!
 %                      \hspace*{\@tempskipa} im \ps@briefersteseite und
 %                      Leerzeichen nach \hspace*{\@tempskipb} entfernt;
-%                      \@tempskipb um 1mm auf 4mm erhöht.
+%                      \@tempskipb um 1mm auf 4mm erhÃ¶ht.
 % 13.02.1998 V 3.4 Kr  \raggedright im Adressenfenster
 % V 3.3:  \vskip anstatt \vspace in \shipout-Routine. Dies war beim Umstieg
-%         von LaTeX2e vom 1.6.95pl3 auf 1.12.96pl1 nötig. 14.04.1997 Kr
-% V 3.2:  \unterschriftbuchstabe muß hier definiert werden, falls ein
+%         von LaTeX2e vom 1.6.95pl3 auf 1.12.96pl1 nÃ¶tig. 14.04.1997 Kr
+% V 3.2:  \unterschriftbuchstabe muÃŸ hier definiert werden, falls ein
 %         Bearbeiter-Style diese Markierung aber nicht sbrief.sty benutzt.
 %         10.01.97 Kr
 % V 3.1:  \adressdatei kann unter LaTeX2e nicht mehr verwendet werden,
@@ -454,7 +454,7 @@
      }
 
 \def\schreibe@fensteradresse
-     {\vbox to 35mm   % von 30mm auf 35mm erhöht; 27.10.1999 Kr
+     {\vbox to 35mm   % von 30mm auf 35mm erhÃ¶ht; 27.10.1999 Kr
          {\vfill
           {\raggedright
           \let\backalt=\\
@@ -707,7 +707,7 @@
 %    ****************************************
 %
 
-\newcommand{\unterschriftbuchstabe}[1]{} % wird erst von sbrief.sty endgültig
+\newcommand{\unterschriftbuchstabe}[1]{} % wird erst von sbrief.sty endgÃ¼ltig
                                          % definiert.
 \def\brief
      {\@ifnextchar [

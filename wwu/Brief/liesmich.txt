@@ -1,12 +1,12 @@
 Dies ist liesmich.txt vom 15.08.2017
 
-Die Ergänzungen stammen von
+Die ErgÃ¤nzungen stammen von
 Ulrich Grabowsky
 (grabowsky@satzundsonders.de).
 
-An der Handhabung hat sich soweit nichts geändert.
+An der Handhabung hat sich soweit nichts geÃ¤ndert.
 Entfallen sind Aktenzeichen und VAT. Ihre Verwendung
-löst keinen Fehler aus -- sie erscheinen aber auch nicht
+lÃ¶st keinen Fehler aus -- sie erscheinen aber auch nicht
 auf dem Briefbogen.
 
 Die Installation der Archiv-Datei "WWU-Brief-2017.zip"
@@ -15,8 +15,8 @@ erfolgt analog zur Installation von "WWU-Brief-2008.zip".
 
 Ist die Brief-Installation bereits vorhanden,
 kann die Datei "WWU-Brief-2017-update.zip"
-verwendet werden. Sie enthält die
-geänderten Dateien der Briefvorlage.
+verwendet werden. Sie enthÃ¤lt die
+geÃ¤nderten Dateien der Briefvorlage.
 Folgende Dateien sind im Verzeichnis
 
 [root]\tex\latex\WWUBrief
@@ -31,10 +31,10 @@ Die Dateien
 WWUMuenster_Logo_2017_4c.pdf
 (und evtl. liesmich.txt)
 
-sind ergänzend in dasselbe Verzeichnis zu kopieren.
+sind ergÃ¤nzend in dasselbe Verzeichnis zu kopieren.
 
-Unter MikTeX anschließend die File Name Database aktualisieren,
-entweder über den Dos-Prompt "initexmf -u" oder über das
+Unter MikTeX anschlieÃŸend die File Name Database aktualisieren,
+entweder Ã¼ber den Dos-Prompt "initexmf -u" oder Ã¼ber das
 Programm MikTeX Settings. Andernfalls wird das Logo nicht
 gefunden.
 
@@ -42,14 +42,14 @@ gefunden.
 
 Dies ist liesmich.txt vom 21.08.2012 WWU/ZIV/Kr
 
-Wer zum Briefeschreiben LaTeX verwendet und hierfür das in den
-90er-Jahren vom ZIV zur Verfügung gestellte Brief-Paket mit dem
+Wer zum Briefeschreiben LaTeX verwendet und hierfÃ¼r das in den
+90er-Jahren vom ZIV zur VerfÃ¼gung gestellte Brief-Paket mit dem
 Briefkopf der WWU einsetzt, kann sich mit den hier vorliegenden
 Dateien einen Briefkopf nach den Vorgaben des neuen Corporate Designs
 der WWU einrichten.
 
-Mit Einführung des neuen WWU-LaTeX-Briefkopfes hat sich der Name der
-LaTeX-Klassendatei geändert. Der bisherige Name lautete "brief.cls".
+Mit EinfÃ¼hrung des neuen WWU-LaTeX-Briefkopfes hat sich der Name der
+LaTeX-Klassendatei geÃ¤ndert. Der bisherige Name lautete "brief.cls".
 Er wurde in "wwubrief.cls" umbenannt.
 
 Nach Abschluss der Installation, muss noch die Briefkopfdatei
@@ -65,9 +65,9 @@ Hinweise zur Installation des WWU-Briefkopfes und der Schrift FF-Meta
 ---------------------------------------------------------------------
 
 Wenn der WWU-LaTeX-Briefkopf zusammen mit einer TeX-Installation
-verwendet werden soll, die von einem zentralen Server zur Verfügung
-gestellt wird, sollte in der Regel die zuständige IVV alle hierfür
-nötigen Einstellungen vornehmen.
+verwendet werden soll, die von einem zentralen Server zur VerfÃ¼gung
+gestellt wird, sollte in der Regel die zustÃ¤ndige IVV alle hierfÃ¼r
+nÃ¶tigen Einstellungen vornehmen.
 (http://www.uni-muenster.de/IVV/).
 
 Im Folgenden wird beschrieben, wie der Briefkopf und die Schrift unter
@@ -86,19 +86,19 @@ entsprechenden Verzeichnisse des lokalen TeX-Baumes verschieben bzw.
 integrieren.
 
 3. In der Eingabeaufforderung (siehe "Start" -> "Alle Programme" ->
-"Zubehör") den Befehl "updmap-sys --enable Map=meta" ausführen.
+"ZubehÃ¶r") den Befehl "updmap-sys --enable Map=meta" ausfÃ¼hren.
 Hierdurch wird die Schrift dem TeX-System bekannt gegeben.
 
 4. In der Eingabeaufforderung kann danach mit dem Befehl
-"kpsewhich wwubrief.cls" überprüft werden, ob die neuen
+"kpsewhich wwubrief.cls" Ã¼berprÃ¼ft werden, ob die neuen
 Dateien von den TeX-Programmen gefunden werden.
 Hierbei dient die Datei "wwubrief.cls" als Stichprobe.
 Als Ergebnis dieses Befehls sollte die folgende Zeile ausgegeben werden:
 x:\yyyyy\zzzzz\tex\latex\brief\wwubrief.cls
 wobei der Laufwerksbuchstabe ("x:") und die Verzeichnisse
-("\yyyyy\zzzzz") von den lokalen Gegebenheiten abhängen.
+("\yyyyy\zzzzz") von den lokalen Gegebenheiten abhÃ¤ngen.
 Falls nur eine Leerzeile ausgegeben wird, ist die Wahrscheinlichkeit
-groß, dass die Dateien nicht in den richtigen TeX-Verzeichnisbaum oder
+groÃŸ, dass die Dateien nicht in den richtigen TeX-Verzeichnisbaum oder
 nicht an die richtige Stelle im TeX-Verzeichnisbaum kopiert wurden.
 
 Beispiel:
@@ -107,7 +107,7 @@ Inhalt des ZIP-Archivs: c:\temp\texmf
 lokaler TeX-Baum: c:\texmf-local
 Die Verzeichnisse "doc", "fonts" und "tex" unter c:\temp\texmf
 nach c:\texmf-local verschieben.
-Danach "updmap-sys --enable Map=meta" ausführen.
+Danach "updmap-sys --enable Map=meta" ausfÃ¼hren.
 Der Aufruf von
 kpsewhich wwubrief.cls
 liefert dann die Zeile:
@@ -125,27 +125,27 @@ der Verzeichnissstruktur in ein Arbeitsverzeichnis kopieren.
 entsprechenden Verzeichnisse des lokalen TeX-Baumes verschieben bzw.
 integrieren.
 
-3. Zusätzlich im lokalen MiKTeX-Baum die Datei meta.map aus dem
+3. ZusÃ¤tzlich im lokalen MiKTeX-Baum die Datei meta.map aus dem
 Verzeichnis "fonts\map\dvips\meta" in das Verzeichnis "dvips\config"
 kopieren.
 
 4. In der Eingabeaufforderung (siehe *)
 in das Miktex-Verzeichnis wechseln und dort das Kommando
     "initexmf --edit-config-file updmap"
-ausführen. Im sich öffnenden Editor-Fenster
+ausfÃ¼hren. Im sich Ã¶ffnenden Editor-Fenster
     "Map meta.map"
 eintragen und speichern.
 
-*(Die Eingabeaufforderung lässt sich unter Windows 10 am schnellsten öffnen, wenn
-man die "Windows"-Taste drückt und anschließend "cmd" tippt.
-Windows schlägt dann die Eingabeaufforderung als Programm vor.
-In älteren Windows-Versionen geht das über "Start" -> "Alle Programme" ->
-"Zubehör".)
+*(Die Eingabeaufforderung lÃ¤sst sich unter Windows 10 am schnellsten Ã¶ffnen, wenn
+man die "Windows"-Taste drÃ¼ckt und anschlieÃŸend "cmd" tippt.
+Windows schlÃ¤gt dann die Eingabeaufforderung als Programm vor.
+In Ã¤lteren Windows-Versionen geht das Ã¼ber "Start" -> "Alle Programme" ->
+"ZubehÃ¶r".)
 
 5. In der gleichen Eingabeaufforderung den Befehl "initexmf -u"
-aufrufen. Das führt "Refresh file name database" aus.
+aufrufen. Das fÃ¼hrt "Refresh file name database" aus.
 
-6. Sodann "initexmf --mkmaps" ausführen. Das aktualisiert die Datenbank der
+6. Sodann "initexmf --mkmaps" ausfÃ¼hren. Das aktualisiert die Datenbank der
 installierten Schriftarten.
 
 Beispiel:
@@ -156,32 +156,32 @@ Die Verzeichnisse "fonts" und "tex" unter c:\temp\texmf
 nach c:\Miktex 2.5 verschieben.
 Die Datei meta.map von c:\Miktex 2.5\fonts\map\dvips\meta
 nach c:\Miktex 2.5\dvips\config kopieren.
-Eingabeaufforderung öffnen
+Eingabeaufforderung Ã¶ffnen
 und im Verzeichnis c:\Miktex 2.5 die Befehle
 "initexmf --mkmaps"
 und
 "initexmf -u"
-ausführen.
+ausfÃ¼hren.
 
 Hinweis:
 In einigen MiKTeX-Installationen kann das Paket "emerald"
-installiert sein. Dieses Paket enthält im Verzeichnis
+installiert sein. Dieses Paket enthÃ¤lt im Verzeichnis
 "tex\latex\emerald" Dateien, die den gleichen Namen besitzen,
 wie die Dateien im Verzeichnis "tex\latex\meta". Damit die
-Meta-Schriften verwendet werden können, müssen entweder das Paket
+Meta-Schriften verwendet werden kÃ¶nnen, mÃ¼ssen entweder das Paket
 "emerald" deinstalliert oder die gleichnamigen Dateien im Verzeichnis
-"tex\latex\emerald" gelöscht oder umbenannt werden.
+"tex\latex\emerald" gelÃ¶scht oder umbenannt werden.
 
 
 Installation unter Mac OS 10.6.2 (Snow Leopard)
 - - - - - - - - - - - - - - - - - - - - - - - -
 (Autor: Stefan Ost, ZIV)
 
-Für eine systemweite Installation:
+FÃ¼r eine systemweite Installation:
 
 1. Den Inhalt der Archiv-Datei "WWU-Brief-2008.zip" unter Beibehaltung
 der Verzeichnissstruktur in /usr/local/texlive/texmf-local entpacken.
-Zugriffsrechte prüfen!
+Zugriffsrechte prÃ¼fen!
 
 2. TeX filename database auffrischen: sudo -H mktexlsr
 
