@@ -1,0 +1,42 @@
+\documentclass{wwubrief}
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+
+% from pandoc's latex template
+\usepackage{eurosym}
+\usepackage[unicode=true]{hyperref}
+\urlstyle{same}
+$if(tables)$
+\usepackage{longtable,booktabs}
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+$endif$
+\providecommand{\tightlist}{%
+    \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+}
+
+\begin{document}
+\begin{brief}{kopf_logo}
+
+\adresse{$if(adresse)$$for(adresse)$$adresse$ \\$endfor$$else$
+    \texttt{adresse}-Liste im ersten YAML-Block angeben!
+$endif$}
+
+\betr{$if(betreff)$$betreff$$else$
+    \texttt{betreff} im ersten YAML-Block angeben!
+$endif$}
+
+\text[\skip{2}]
+$body$
+\schluss
+
+\gruss{$if(unterschrift)$$unterschrift$$else$
+    Mirko Westermeier
+$endif$}
+
+$if(schluss)$
+    \vspace{2em}
+    $schluss$
+$endif$
+
+\end{brief}
+\end{document}

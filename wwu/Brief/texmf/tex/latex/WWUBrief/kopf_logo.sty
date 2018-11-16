@@ -1,0 +1,67 @@
+% Version 4.0:  Neues Layout im Corporate Design der WWU (2017)
+% Umgearbeitet für das neue CD der WWU von
+% Ulrich Grabowsky, grabowsky@satzundsonders.de, 15.08.2017.
+% Die geaenderten Stellen sind mit gu gekennzeichnet.
+% Es duerfte fuer die Umgestaltung vorhandener Stildateien
+% einfacher sein, nur die hier bearbeiteten Stellen
+% anzupassen.
+% Wesentliche Änderungen in dieser Datei:
+% -- Das neue Logo (WWU_Logo2017) ersetzt das alte.
+% -- \@organisationseinheittext soll jetzt in Versalien stehen.
+% -- Bearbeiter ist nicht mehr ausgerückt, sondern steht oberhalb
+%   des Namens.
+% Dies ist kopf_logo.sty Kr/Ar
+\def\filedate{15.08.2017}
+\def\fileversion{V 4.0}
+% Das File enthält die Definition eines Uni-Musterbriefkopfes.
+%
+% Version 3.0:  Neues Layout im Corporate Design der WWU (2008)
+
+\@ifundefined{wlogWWUkopf_logo}%
+   {\wlog{Briefkopfstil: \filename, (basierend auf ZIV/Kr Vers. 3) Vers. \fileversion, \filedate\space sns/gu}
+    \gdef\wlogWWUkopf_logo{}}%
+   {}
+
+\ifErsterAufruf@Briefkopf\ErsterAufruf@Briefkopffalse\fi
+
+%% Hier wird das Aussehen der im Briefkopf auftretenden Blöcke wie %%
+%% die Telefonnummern oder das Institutslogo definiert.            %%
+
+\def\@institutslogotext%
+               {\raisebox{0mm}%
+                    {\parbox[b]{64.2mm}%
+                       {\centering
+                        \includegraphics[width=64.2mm, trim=2.5mm 0pt 0pt 0pt]{WWUMuenster_Logo_2017_4c}\\[2mm]%      15.08.2017 gu
+                       }%
+                    }%
+                \hspace{52.8mm}%                                                  15.08.2017 gu
+                \raisebox{2mm}[0mm][0mm]%
+                    {\makebox[0mm][l]{%
+  %                      \includegraphics[height=20mm,clip]{logo}%
+                        \hspace{25mm}\parbox[b]{60mm}{%
+                             \huge \textbf{SCDH} \\
+                             \scriptsize Service Center \\ Digital Humanities
+                             }%
+                       }%
+                    }%
+                \par
+               }
+
+\def\@absimfenstertext{%
+           WWU Münster
+           $|$ Service Center Digital Humanities }
+
+\def\@organisationseinheittext{%  Standardschriftgröße \SG@Orga 7.5pt
+    \hspace{.3mm}\textbf{Dipl. Inf. Mirko Westermeier}\par% 15.08.2017 gu
+    \hspace{.3mm}Software Developer}
+
+\def\@absanschrifttext{%
+           Scharnhorststraße 103-109 \\
+           48143 Münster}
+
+\def\@absnametext{%
+    \makebox[0mm][l]{Telefon: +49\,\,(0)251\,\,83\,-\,25295}
+    \\
+    \makebox[0mm][l]{E-Mail: mirko.westermeier@wwu.de}
+ }%
+

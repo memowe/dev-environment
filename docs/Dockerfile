@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.10
 
 # Install useful packages
 ENV DEBIAN_FRONTEND noninteractive
@@ -7,6 +7,7 @@ RUN apt-get update && \
         pandoc \
         texlive \
         texlive-latex-recommended \
+        texlive-latex-extra \
         texlive-lang-german \
         texlive-humanities
 
