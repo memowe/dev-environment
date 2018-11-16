@@ -9,3 +9,9 @@ COPY Brief/texmf/ /usr/share/texmf/
 RUN texhash \
     && mktexlsr \
     && updmap-sys --enable Map meta.map
+
+# Prepare user specific WWU Brief templates
+COPY Templates/ /usr/share/templates/
+
+# Prepare wwubrief convenience script
+COPY Scripts/wwubrief.sh /usr/local/bin/wwubrief
