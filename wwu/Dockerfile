@@ -15,3 +15,6 @@ COPY Templates/ /usr/share/templates/
 
 # Prepare wwubrief convenience script
 COPY Scripts/wwubrief.sh /usr/local/bin/wwubrief
+
+# Done
+CMD ["/bin/bash"]

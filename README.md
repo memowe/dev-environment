@@ -53,11 +53,13 @@ Have a look at the [build targets](Makefile) for more information.
 
 [WWU]: https://www.wwu.de
 
-All this is orchestrated with a funky [Makefile](Makefile).
+All this is orchestrated by a funky [Makefile](Makefile).
 
 ## Author
 
 (c) 2018 [Mirko Westermeier](http://mirko.westermeier.de/)
+
+All rights reserved.
 
 ## Resources
 
