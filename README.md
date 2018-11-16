@@ -55,6 +55,8 @@ Have a look at the [build targets](Makefile) for more information.
 
 All this is orchestrated by a funky [Makefile](Makefile).
 
+![](wwu/brief-demo.png)
+
 ## Author
 
 (c) 2018 [Mirko Westermeier](http://mirko.westermeier.de/)
