@@ -58,13 +58,13 @@ build: build-user
 all: build
 
 test-perl: build-perl
-	docker run -v "$$(pwd)/perl/test.sh:/home/memowe/perl-test.sh" memowe-perl /bin/bash /home/memowe/perl-test.sh
+	docker run -v "$$(pwd)/perl/test.sh:/tmp/perl-test.sh" memowe-perl /bin/bash /tmp/perl-test.sh
 
 test-docs: build-docs build-perl
-	docker run -v "$$(pwd)/docs/test.sh:/home/memowe/docs-test.sh" memowe-docs /bin/bash /home/memowe/docs-test.sh
+	docker run -v "$$(pwd)/docs/test.sh:/tmp/docs-test.sh" memowe-docs /bin/bash /tmp/docs-test.sh
 
 test-wwu: build-wwu
-	docker run -v "$$(pwd)/wwu/test.sh:/home/memowe/wwu-test.sh" memowe-wwu /bin/bash /home/memowe/wwu-test.sh
+	docker run -v "$$(pwd)/wwu/test.sh:/tmp/wwu-test.sh" memowe-wwu /bin/bash /tmp/wwu-test.sh
 
 test: test-perl test-docs test-wwu
 
