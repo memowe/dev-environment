@@ -1,5 +1,5 @@
 .PHONY: build-base build-perl build-python build-docs build-wwu build-user build
-.PHONY: all test-perl test-docs test run
+.PHONY: all test-perl test-docs test-wwu test run
 .DEFAULT_GOAL := all
 
 # Default run command including
@@ -63,7 +63,10 @@ test-perl: build-perl
 test-docs: build-docs build-perl
 	docker run -v "$$(pwd)/docs/test.sh:/home/memowe/docs-test.sh" memowe-docs /bin/bash /home/memowe/docs-test.sh
 
-test: test-perl test-docs
+test-wwu: build-wwu
+	docker run -v "$$(pwd)/wwu/test.sh:/home/memowe/wwu-test.sh" memowe-wwu /bin/bash /home/memowe/wwu-test.sh
+
+test: test-perl test-docs test-wwu
 
 run: build
 	eval "$(run_command) memowe"
