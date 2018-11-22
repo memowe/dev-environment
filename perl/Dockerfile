@@ -32,6 +32,7 @@ RUN cpanm -qn \
     Devel::NYTProf \
     Perl::Critic \
     Test::Exception \
+    Test::Perl::Critic \
     Test::Pod \
     Test::Pod::Coverage \
     Perl::Tidy
