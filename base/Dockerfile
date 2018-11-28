@@ -7,6 +7,7 @@ RUN apt-get update && \
         wget \
         lynx \
         build-essential \
+        socat \
         docker.io \
         docker-compose \
         ruby-dev \
