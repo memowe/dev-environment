@@ -7,7 +7,6 @@
     st = status --short --branch
     lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
     loog  = log --graph --all --pretty=format:'%C(red bold)%d%Creset %s %Cgreen(%cr) %Cblue<%an> %Cred%h'
-    standup = !"git log --reverse --branches --since=$(if [[ "Mon" == "$(date +%a)" ]]; then echo "last friday"; else echo "yesterday"; fi) --author=$(git config --get user.email) --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local"
 [push]
 	default = simple
 [diff]
