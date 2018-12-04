@@ -23,6 +23,9 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
+# Disable Ctrl-S and Ctrl-Q (pauses terminal for ancient reasons)
+RUN echo -e "stty stop ''\nstty start ''\nstty -ixon\nstty -ixoff" >> /etc/bash.bashrc
+
 # Expose web development port
 EXPOSE 3000
 
