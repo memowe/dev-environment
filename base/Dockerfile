@@ -14,7 +14,8 @@ RUN apt-get update && \
         ruby-dev \
         vim-nox \
         tmux \
-        git
+        git \
+        tig
 
 # Set locales
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
