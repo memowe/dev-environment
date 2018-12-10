@@ -21,6 +21,9 @@ COPY --chown=memowe:memowe tmux.conf .tmux.conf
 # Install git configuration
 COPY --chown=memowe:memowe gitconfig .gitconfig
 
+# Install tig git gui configuration
+COPY --chown=memowe:memowe tigrc .tigrc
+
 # git autocomplete
 COPY --chown=memowe:memowe git-completion.bash .git-completion.bash
 COPY --chown=memowe:memowe git-completion_bashrc .bashrc
