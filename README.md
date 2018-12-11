@@ -3,6 +3,20 @@ Docker configurations for my development environment
 
 [![Travis CI tests](https://travis-ci.org/memowe/dev-environment.svg?branch=master)](https://travis-ci.org/memowe/dev-environment)
 
+## Preparations
+
+Update all submodules:
+
+```bash
+$ git submodule update --init --recursive
+```
+
+Follow the instructions in the [vim submodule's README file][vim-README].
+
+[vim-README]: https://github.com/memowe/vim-conf/blob/master/README.md
+
+## Usage
+
 Cache/build docker images:
 
 ```bash

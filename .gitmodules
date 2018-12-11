@@ -1,0 +1,3 @@
+[submodule "user/dotfiles"]
+	path = user/dotfiles
+	url = https://github.com/memowe/dotfiles.git
