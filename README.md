@@ -77,6 +77,10 @@ All this is orchestrated by a funky [Makefile](Makefile).
 
 All rights reserved.
 
+**Contributors**
+
+- Diego Siqueira
+
 ## Resources
 
 - [Docker Docs: **Dockerfile reference**][df-reference]
