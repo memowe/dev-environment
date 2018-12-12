@@ -6,6 +6,12 @@ RUN apt-get update && \
     apt-get install -y \
         python \
         python3 \
+        python-dev \
+        python3-dev \
+        python-pip \
+        python3-pip \
+        python-venv \
+        python3-venv \
         python-django \
         python3-django \
         python-flask \
