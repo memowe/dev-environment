@@ -11,6 +11,7 @@ RUN apt-get update && \
         socat \
         docker.io \
         docker-compose \
+        htop \
         ruby-dev \
         vim-nox \
         tmux \
