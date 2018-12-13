@@ -10,8 +10,8 @@ RUN apt-get update && \
         python3-dev \
         python-pip \
         python3-pip \
-        python-venv \
-        python3-venv \
+        python-virtualenv \
+        python3-virtualenv \
         python-django \
         python3-django \
         python-flask \
