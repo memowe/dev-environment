@@ -5,15 +5,11 @@ Docker configurations for my development environment
 
 ## Preparations
 
-Update all submodules:
-
 ```bash
-$ git submodule update --init --recursive
+$ make init
 ```
 
-Follow the instructions in the [vim submodule's README file][vim-README].
-
-[vim-README]: https://github.com/memowe/vim-conf/blob/master/README.md
+This updates all submodules and builds a vim package that needs compilation.
 
 ## Usage
 

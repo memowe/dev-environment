@@ -1,6 +1,11 @@
+.PHONY: init
 .PHONY: build-base build-perl build-python build-docs build-wwu build-user build
 .PHONY: all test-perl test-docs test-wwu test run
 .DEFAULT_GOAL := all
+
+init:
+	git submodule update --init --recursive
+	cd user/dotfiles/.vim && make && cd -
 
 # Default run command including
 # - web development port forwarding
