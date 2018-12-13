@@ -1,2 +1,5 @@
 # vim swap files
 *.sw[a-p]
+
+# docs binary artifacts
+docs/pandoc.deb

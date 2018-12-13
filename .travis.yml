@@ -1,4 +1,6 @@
-script: make test
+script:
+    - make init
+    - make test
 
 services:
     - docker
