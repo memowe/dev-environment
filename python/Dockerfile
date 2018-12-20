@@ -11,7 +11,7 @@ RUN apt-get update && \
         python-pip \
         python3-pip \
         python-virtualenv \
-        python3-virtualenv \
+        python3-venv \
         python-django \
         python3-django \
         python-flask \
