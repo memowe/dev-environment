@@ -12,6 +12,7 @@ RUN apt-get update && \
         docker.io \
         docker-compose \
         htop \
+        tree \
         ruby-dev \
         vim-nox \
         tmux \
