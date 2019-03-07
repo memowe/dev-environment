@@ -1,11 +1,7 @@
 #!/bin/sh
 
-# Prepare temporary contenticious app
-cd $(mktemp -d)
-contenticious init
-
-# Check default headline text
-if [ $(./webapp.pl get / h1 text) = "Welcome!" ]; then
+# Check super simple mojolicious web app
+if [ $(perl -Mojo -E 'a("/" => {text => 42})->start' get /) = "42" ]; then
     exit 0
 else
     exit 1
