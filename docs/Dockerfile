@@ -8,7 +8,8 @@ RUN apt-get update && \
         texlive-latex-recommended \
         texlive-latex-extra \
         texlive-lang-german \
-        texlive-humanities
+        texlive-humanities \
+        ghostscript
 
 # Install a new pandoc package (Ubuntu 18.10's is rather old)
 COPY pandoc.deb /tmp/pandoc.deb
