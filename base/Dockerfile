@@ -7,6 +7,7 @@ RUN apt-get update && \
         locales \
         sudo \
         wget \
+        curl \
         lynx \
         build-essential \
         socat \
