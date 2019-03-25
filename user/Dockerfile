@@ -4,6 +4,7 @@ ENV HOME /home/memowe
 
 # Prepare userland
 RUN useradd -m -d $HOME memowe && \
+    adduser memowe sudo
 WORKDIR $HOME
 
 # Copy dotfiles

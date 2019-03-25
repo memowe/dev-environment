@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install -y \
         locales \
+        sudo \
         wget \
         lynx \
         build-essential \
@@ -18,6 +19,9 @@ RUN apt-get update && \
         tmux \
         git \
         tig
+
+# Enable sudo for all users
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # Set locales
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
