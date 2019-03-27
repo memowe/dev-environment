@@ -6,7 +6,6 @@
 init:
 	git submodule update --init --recursive
 	wget -O docs/pandoc.deb https://github.com/jgm/pandoc/releases/download/2.5/pandoc-2.5-1-amd64.deb
-	cd user/dotfiles/.vim && make && cd -
 
 # Default run command including
 # - web development port forwarding
