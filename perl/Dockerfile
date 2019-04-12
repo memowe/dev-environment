@@ -4,6 +4,8 @@ FROM ubuntu:18.10
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install -y \
+        git \
+        build-essential \
         perl \
         cpanminus \
         zlib1g-dev # for Gzip::Faster
@@ -60,6 +62,10 @@ RUN cpanm -qn \
 RUN cpanm -qn \
     Contenticious \
     EventStore::Tiny
+
+# Install Dirdown (not on CPAN)
+RUN git clone https://github.com/memowe/dirdown.git /tmp/dd && \
+    cd /tmp/dd && cpanm -qn . && cd -
 
 # START
 CMD ["/bin/bash"]
