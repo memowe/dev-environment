@@ -12,8 +12,7 @@ RUN npm install --global --unsafe-perm=true --allow-root --loglevel verbose \
     jquery \
     vue \
     leaflet \
-    d3 \
-    elm
+    d3
 
 # START
 CMD ["/bin/bash"]
