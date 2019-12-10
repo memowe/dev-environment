@@ -50,7 +50,8 @@ RUN cpanm -qn \
     Mojolicious \
     Mojolicious::Plugin::AssetPack \
     Mojolicious::Plugin::RelativeUrlFor \
-    Mojolicious::Plugin::Subdispatch
+    Mojolicious::Plugin::Subdispatch \
+    ojo::ServeDir
 
 # Install important other perl modules
 RUN cpanm -qn \
