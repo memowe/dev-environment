@@ -1,5 +1,5 @@
 .PHONY: init
-.PHONY: build-base build-perl build-python build-js build-docs build-wwu build-user build
+.PHONY: build-base build-perl build-python build-js build-haskell build-docs build-wwu build-user build
 .PHONY: all test-perl test-docs test-wwu test run
 .DEFAULT_GOAL := all
 
@@ -47,9 +47,14 @@ build-js: part = "js"
 build-js: build-python
 	$(docker_build_with_from_being_previous)
 
-build-docs: previous_part = "js"
+build-haskell: previous_part = "js"
+build-haskell: part = "haskell"
+build-haskell: build-js
+	$(docker_build_with_from_being_previous)
+
+build-docs: previous_part = "haskell"
 build-docs: part = "docs"
-build-docs: build-js
+build-docs: build-haskell
 	$(docker_build_with_from_being_previous)
 
 build-wwu: previous_part = "docs"
