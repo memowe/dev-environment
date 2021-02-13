@@ -1,4 +1,4 @@
-FROM ubuntu:18.10
+FROM ubuntu:20.04
 
 # Copy WWU specific fonts and CI images
 COPY Corporate_Identity /usr/share/wwu/ci

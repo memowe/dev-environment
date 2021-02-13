@@ -1,4 +1,4 @@
-FROM ubuntu:18.10
+FROM ubuntu:20.04
 
 # Install useful packages
 ENV DEBIAN_FRONTEND noninteractive
